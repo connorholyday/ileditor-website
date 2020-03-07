@@ -1,42 +1,59 @@
-import { Link } from "gatsby"
-import PropTypes from "prop-types"
 import React from "react"
+import { Link } from "gatsby"
+import styled from "styled-components"
+import { getSpace } from "../theme"
+import logo from "../assets/logo.svg"
 
-const Header = ({ siteTitle }) => (
-  <header
-    style={{
-      background: `rebeccapurple`,
-      marginBottom: `1.45rem`,
-    }}
-  >
-    <div
-      style={{
-        margin: `0 auto`,
-        maxWidth: 960,
-        padding: `1.45rem 1.0875rem`,
-      }}
-    >
-      <h1 style={{ margin: 0 }}>
-        <Link
-          to="/"
-          style={{
-            color: `white`,
-            textDecoration: `none`,
-          }}
-        >
-          {siteTitle}
-        </Link>
-      </h1>
-    </div>
+const Wrapper = styled.div`
+  max-width: ${({ theme }) => theme.wrapper};
+  margin: ${getSpace(56)} auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+`
+
+const Nav = styled.nav`
+  display: flex;
+  align-items: center;
+`
+
+const NavLink = styled(Link)`
+  font-weight: 500;
+  font-size: ${({ theme }) => getSpace(theme.fontSizes[0])};
+  line-height: 1.2;
+  text-align: center;
+  color: #000000;
+  text-decoration: none;
+  margin: 0 ${getSpace(20)};
+`
+
+const Button = styled.a`
+  font-weight: 800;
+  font-size: ${({ theme }) => getSpace(theme.fontSizes[1])};
+  line-height: 1.3;
+  text-decoration: none;
+  text-align: center;
+  color: ${({ theme }) => theme.colors.brand};
+  padding: ${({ theme }) =>
+    `${getSpace(theme.fontSizes[0])} ${getSpace(theme.fontSizes[4])}`};
+  background: #ffffff;
+  box-shadow: 0px 0px 16px rgba(0, 101, 255, 0.13);
+  border-radius: 4px;
+`
+
+const Header = () => (
+  <header>
+    <Wrapper>
+      <img src={logo} alt="ILEDITOR" />
+      <Nav>
+        <NavLink to="#features">Features</NavLink>
+        <NavLink to="/documentation">Documentation</NavLink>
+        <NavLink to="#roadmap">Roadmap</NavLink>
+        <NavLink to="#help">Help &amp; FAQs</NavLink>
+      </Nav>
+      <Button href="/">Buy Now</Button>
+    </Wrapper>
   </header>
 )
-
-Header.propTypes = {
-  siteTitle: PropTypes.string,
-}
-
-Header.defaultProps = {
-  siteTitle: ``,
-}
 
 export default Header
