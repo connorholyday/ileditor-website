@@ -1,9 +1,14 @@
 import React from "react"
 import { useStaticQuery, graphql } from "gatsby"
-import { ThemeProvider } from "styled-components"
+import styled, { ThemeProvider } from "styled-components"
 
 import Header from "./header"
 import { theme, GlobalStyles } from "../theme"
+
+const Wrapper = styled.div`
+  max-width: ${({ theme }) => theme.wrapper};
+  margin: 0 auto;
+`
 
 const Layout = ({ children }) => {
   const data = useStaticQuery(graphql`
@@ -20,16 +25,10 @@ const Layout = ({ children }) => {
     <ThemeProvider theme={theme}>
       <GlobalStyles />
       <Header siteTitle={data.site.siteMetadata.title} />
-      <div
-        style={{
-          margin: `0 auto`,
-          maxWidth: 960,
-          padding: `0 1.0875rem 1.45rem`,
-        }}
-      >
+      <Wrapper>
         <main>{children}</main>
         <footer>© {new Date().getFullYear()} Power Edge</footer>
-      </div>
+      </Wrapper>
     </ThemeProvider>
   )
 }

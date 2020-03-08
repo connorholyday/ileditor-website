@@ -26,9 +26,9 @@ export const GlobalStyles = createGlobalStyle`
   }
 
   html {
-    height: 100%;
+    position: relative;
     background-color: ${({ theme }) => theme.colors.white};
-    background-image: linear-gradient(180deg, #ECF4FF 0%, rgba(196, 196, 196, 0) 100%);
+    background-image: linear-gradient(180deg, #ECF4FF 0%, transparent 100%);
 
     &::before {
       content: '';
@@ -40,6 +40,7 @@ export const GlobalStyles = createGlobalStyle`
       background-image: linear-gradient(90deg, rgba(0, 101, 255, 0.1) 1px, transparent 1px);
       background-size: 20% 20%;
       pointer-events: none;
+      z-index: -1;
     }
   }
 
