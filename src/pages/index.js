@@ -42,12 +42,24 @@ const Button = styled.a`
   border-radius: 4px;
 `
 
+const Lead = styled.p`
+  font-size: ${({ theme }) => getSpace(theme.fontSizes[2])};
+  line-height: 1.4;
+  text-align: center;
+  max-width: ${getSpace(570)};
+  margin: 0 auto;
+`
+
 const Subtitle = styled.h1`
   font-size: ${({ theme }) => getSpace(theme.fontSizes[5])};
   font-weight: 800;
   line-height: 1.3;
   text-align: center;
   margin: ${getSpace(48)} 0};
+
+  & + ${Lead} {
+    margin-bottom: ${getSpace(24)};
+  }
 `
 
 const Grid = styled.section`
@@ -112,17 +124,24 @@ const Home = () => (
       <Button href="#">Start your free trial</Button>
     </CenterSection>
     <section>{/* The laptop screen */}</section>
-    <section>
+    <section id="features">
       <Subtitle>ILEditor Features</Subtitle>
       <Grid>
         {Cards.map(card => (
-          <Card>
+          <Card key={card.title}>
             <CardIcon src={cardIcon} alt="" />
             <CardTitle>{card.title}</CardTitle>
             <CardContent>{card.content}</CardContent>
           </Card>
         ))}
       </Grid>
+    </section>
+    <section id="roadmap">
+      <Subtitle>Product Roadmap</Subtitle>
+      <Lead>
+        We’re continually working on improving the editor to make it the best it
+        can be for you.
+      </Lead>
     </section>
   </Layout>
 )
