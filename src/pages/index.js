@@ -4,6 +4,7 @@ import styled from "styled-components"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 import { getSpace } from "../theme"
+import hero from "../assets/hero.svg"
 import cardIcon from "../assets/card-icon.svg"
 
 const CenterSection = styled.section`
@@ -56,6 +57,11 @@ const Subtitle = styled.h1`
   line-height: 1.3;
   text-align: center;
   margin: ${getSpace(24)} 0;
+`
+
+const Hero = styled.img`
+  width: 100%;
+  margin: ${getSpace(60)} 0 ${getSpace(160)};
 `
 
 const Grid = styled.section`
@@ -220,12 +226,12 @@ const Roadmap = [
     title: "Finished",
     items: [
       {
-        text: "IFS Plugin",
+        text: "Code Coverage Plugin",
         authors: [authors.liam],
       },
       {
-        text: "Member Plugin",
-        authors: [authors.liam],
+        text: "Error listing",
+        authors: [authors.liam, authors.connor],
       },
       {
         text: "Compiling",
@@ -246,7 +252,9 @@ const Home = () => (
       </Intro>
       <Button href="#">Start your free trial</Button>
     </CenterSection>
-    <section>{/* The laptop screen */}</section>
+    <section>
+      <Hero src={hero} alt="" />
+    </section>
     <section id="features">
       <Subtitle>ILEditor Features</Subtitle>
       <Grid>
