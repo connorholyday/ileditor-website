@@ -18,13 +18,13 @@ module.exports = {
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: `gatsby-starter-default`,
-        short_name: `starter`,
+        name: `ILEditor2`,
+        short_name: `ILEditor2`,
         start_url: `/`,
         background_color: `#0065FF`,
         theme_color: `#0065FF`,
         display: `minimal-ui`,
-        icon: `src/assets/gatsby-icon.png`, // This path is relative to the root of the site.
+        icon: `src/assets/favicon.png`, // This path is relative to the root of the site.
       },
     },
     // this (optional) plugin enables Progressive Web App + Offline functionality
