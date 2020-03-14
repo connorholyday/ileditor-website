@@ -41,8 +41,21 @@ const Button = styled.a`
   border-radius: 4px;
 `
 
+const Construction = styled.div`
+  position: fixed;
+  top: 1em;
+  left: 1em;
+  color: white;
+  font-weight: bold;
+  font-size: 16px;
+  background: #fd9644;
+  padding: 0.5em;
+  border-radius: 8px;
+`
+
 const Header = () => (
   <header>
+    <Construction>Under Construction</Construction>
     <Wrapper>
       <img src={logo} alt="ILEDITOR Logo" />
       <Nav>
