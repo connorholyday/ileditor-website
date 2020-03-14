@@ -44,7 +44,7 @@ const Button = styled.a`
 const Header = () => (
   <header>
     <Wrapper>
-      <img src={logo} alt="ILEDITOR" />
+      <img src={logo} alt="ILEDITOR Logo" />
       <Nav>
         <NavLink to="/#features">Features</NavLink>
         <NavLink to="/documentation">Documentation</NavLink>

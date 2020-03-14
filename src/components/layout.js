@@ -27,7 +27,7 @@ const Layout = ({ children }) => {
       <Header siteTitle={data.site.siteMetadata.title} />
       <Wrapper>
         <main>{children}</main>
-        <footer>© {new Date().getFullYear()} Power Edge</footer>
+        <footer>© {new Date().getFullYear()} Halcyon Tech</footer>
       </Wrapper>
     </ThemeProvider>
   )
