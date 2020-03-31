@@ -1,0 +1,28 @@
+---
+title: Code Coverage
+path: /docs/code-coverage
+date: 2020-03-31
+---
+
+![A screenshot showing the code coverage plugin in action](./code-coverage-1.png)
+
+Code Coverage allows the users to determine which lines of code were and were not executed.
+
+The Code Coverage panel displays a list of libraries (coming from the Library List setting in ILEditor 2) and when you click on the library it will display a list of programs inside of it. Clicking on the program will execute it under code coverage and will display a list of sources from the coverage results. Clicking on the source will open up the coverage result in a new tab.
+
+The coverage tab will display the source code used from the test. If the line is highlighted green, it means the line was executed. If there is a red bar to the left of it, it means the opposite.
+
+Internally, the Code Coverage plugin uses the `CODECOV` command. While you can pass in program parameters to this command, the plugin simply calls the program with no parameters:
+
+```
+CODECOV CMD(CALL PGM(${library}/${name})) MODULE((${library}/${name} *PGM *ALL))
+```
+
+When the test is executing, it will use the library list defined in the Settings for ILEditor 2.
+
+Note that for Code Coverage to work you need to make sure
+
+1. that `QDEVTOOLS` is on your library list.
+2. the correct PTFs are installed (which are free).
+
+![](./code-coverage-2.png)

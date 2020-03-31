@@ -10,7 +10,14 @@ module.exports = {
       resolve: `gatsby-source-filesystem`,
       options: {
         name: `images`,
-        path: `${__dirname}/src/assets`,
+        path: `${__dirname}/content/assets`,
+      },
+    },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        path: `${__dirname}/content/docs`,
+        name: `docs`,
       },
     },
     `gatsby-transformer-sharp`,
@@ -24,10 +31,40 @@ module.exports = {
         background_color: `#0065FF`,
         theme_color: `#0065FF`,
         display: `minimal-ui`,
-        icon: `src/assets/favicon.png`, // This path is relative to the root of the site.
+        icon: `content/assets/favicon.png`, // This path is relative to the root of the site.
       },
     },
     `gatsby-plugin-styled-components`,
+    {
+      resolve: `gatsby-plugin-mdx`,
+      options: {
+        extensions: [".mdx", ".md"],
+        // a workaround to solve mdx-remark plugin compat issue
+        // https://github.com/gatsbyjs/gatsby/issues/15486
+        plugins: [`gatsby-remark-images`],
+        gatsbyRemarkPlugins: [
+          {
+            resolve: `gatsby-remark-images`,
+            options: {
+              maxWidth: 590,
+            },
+          },
+          {
+            resolve: `gatsby-remark-responsive-iframe`,
+            options: {
+              wrapperStyle: `margin-bottom: 1.0725rem`,
+            },
+          },
+          {
+            resolve: `gatsby-remark-copy-linked-files`,
+          },
+
+          {
+            resolve: `gatsby-remark-smartypants`,
+          },
+        ],
+      },
+    },
     // this (optional) plugin enables Progressive Web App + Offline functionality
     // To learn more, visit: https://gatsby.dev/offline
     // `gatsby-plugin-offline`,

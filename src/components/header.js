@@ -60,7 +60,7 @@ const Header = () => (
       <img src={logo} alt="ILEDITOR Logo" />
       <Nav>
         <NavLink to="/#features">Features</NavLink>
-        <NavLink to="/documentation">Documentation</NavLink>
+        <NavLink to="/docs">Documentation</NavLink>
         <NavLink to="/#roadmap">Roadmap</NavLink>
         <NavLink to="/#help">Help &amp; FAQs</NavLink>
       </Nav>
