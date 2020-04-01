@@ -9,7 +9,7 @@ exports.createPages = ({ graphql, actions }) => {
     `
       {
         allMdx(
-          sort: { fields: [frontmatter___date], order: DESC }
+          sort: { fields: [frontmatter___order], order: ASC }
           limit: 1000
         ) {
           edges {
@@ -33,8 +33,18 @@ exports.createPages = ({ graphql, actions }) => {
       throw result.errors
     }
 
-    // Create blog posts pages.
+    // Create docs pages
     const posts = result.data.allMdx.edges
+
+    createPage({
+      path: "/docs",
+      component: docPost,
+      context: {
+        slug: posts[0].node.fields.slug,
+        previous: null,
+        next: posts[1].node,
+      },
+    })
 
     posts.forEach((post, index) => {
       const previous = index === posts.length - 1 ? null : posts[index + 1].node

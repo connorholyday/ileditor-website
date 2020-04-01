@@ -120,7 +120,6 @@ export const pageQuery = graphql`
         node {
           id
           frontmatter {
-            order
             title
             path
           }
