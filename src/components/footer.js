@@ -2,7 +2,6 @@ import React from "react"
 import styled from "styled-components"
 import Wrapper from "./wrapper"
 import { getSpace } from "../theme"
-import twitterIcon from "../assets/twitter.svg"
 
 const Footer = styled.footer`
   padding: ${getSpace(60)} 0;
