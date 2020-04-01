@@ -30,6 +30,7 @@ export const GlobalStyles = createGlobalStyle`
   }
 
   html {
+    scroll-behavior: smooth;
     position: relative;
     background-color: ${({ theme }) => theme.colors.white};
     ${({ solid, theme }) =>
