@@ -40,6 +40,7 @@ export const GlobalStyles = createGlobalStyle`
           ${theme.colors.offWhite} 0%,
           ${theme.colors.white} 100%
         );
+        background-repeat: no-repeat;
       `};
 
     ${({ hideGuidelines = false }) =>
