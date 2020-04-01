@@ -15,6 +15,7 @@ exports.createPages = ({ graphql, actions }) => {
           edges {
             node {
               id
+              body
               fields {
                 slug
               }
@@ -22,7 +23,6 @@ exports.createPages = ({ graphql, actions }) => {
                 title
                 path
               }
-              body
             }
           }
         }

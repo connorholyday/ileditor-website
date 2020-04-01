@@ -1,4 +1,4 @@
-import { createGlobalStyle } from "styled-components"
+import { createGlobalStyle, css } from "styled-components"
 
 export const theme = {
   wrapper: "80rem",
@@ -6,8 +6,10 @@ export const theme = {
   colors: {
     brand: "#0065FF",
     green: "#12CA88",
+    offBlack: "#757575",
     black: "#000",
     grey: "#E5E5E5",
+    offWhite: "#ECF4FF",
     white: "#fff",
   },
 }
@@ -29,20 +31,36 @@ export const GlobalStyles = createGlobalStyle`
   html {
     position: relative;
     background-color: ${({ theme }) => theme.colors.white};
-    background-image: linear-gradient(180deg, #ECF4FF 0%, transparent 100%);
+    ${({ solid, theme }) =>
+      !solid &&
+      css`
+        background-image: linear-gradient(
+          180deg,
+          ${theme.colors.offWhite} 0%,
+          ${theme.colors.white} 100%
+        );
+      `};
 
-    &::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      bottom: 0;
-      left: 0;
-      right: 0;
-      background-image: linear-gradient(90deg, rgba(0, 101, 255, 0.1) 1px, transparent 1px);
-      background-size: 20% 20%;
-      pointer-events: none;
-      z-index: -1;
-    }
+    ${({ hideGuidelines = false }) =>
+      !hideGuidelines &&
+      css`
+        &::before {
+          content: "";
+          position: absolute;
+          top: 0;
+          bottom: 0;
+          left: 0;
+          right: 0;
+          background-image: linear-gradient(
+            90deg,
+            rgba(0, 101, 255, 0.1) 1px,
+            transparent 1px
+          );
+          background-size: 20% 20%;
+          pointer-events: none;
+          z-index: -1;
+        }
+      `}
   }
 
   body {
