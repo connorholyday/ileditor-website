@@ -41,6 +41,11 @@ const NavLink = styled(Link)`
   color: #000000;
   text-decoration: none;
   margin: 0 ${getSpace(20)};
+
+  &:hover,
+  &:focus {
+    color: ${({ theme }) => theme.colors.brand};
+  }
 `
 
 const Button = styled.a`
