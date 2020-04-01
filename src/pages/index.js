@@ -1,5 +1,4 @@
 import React from "react"
-// import { Link } from "gatsby"
 import styled from "styled-components"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
@@ -143,6 +142,15 @@ const Author = styled.div`
   }
 `
 
+const HelpGrid = styled.section`
+  display: grid;
+  grid-template-columns: minMax(300px, 1fr) minMax(600px, 2fr);
+  grid-gap: ${getSpace(32)};
+  margin: ${getSpace(72)} 0;
+`
+
+const HelpColumn = styled.div``
+
 const Cards = [
   {
     title: "Source Browsers",
@@ -241,6 +249,34 @@ const Roadmap = [
   },
 ]
 
+const FAQs = [
+  {
+    title: "Can I get a free trial?",
+    description:
+      "While ILEditor 2 is in open-beta, we are not offering free trials. You can expect to see this by the time we reach 1.0.",
+  },
+  {
+    title: "Can my team get support?",
+    description:
+      "Absolutely. We are still working out the kinks but we want to help you in any way possible. If you are in need of support with ILEditor 2, we'll have a support email when we've launched.",
+  },
+  // {
+  //   title: "Can my team get support?",
+  //   description:
+  //     "Absolutely. We are still working out the kinks but we want to help you in any way possible. If you are in need of support with ILEditor 2, you can reach out to support@ileditor.dev.",
+  // },
+  {
+    title: "Where can I report a bug?",
+    description:
+      "You can report a bug for ILEditor 2 or the website on the public GitHub repository.",
+  },
+  {
+    title: "How do I get started with ILEditor 2?",
+    description:
+      "Either check out our documentation or see our introductory videos!",
+  },
+]
+
 const Home = () => (
   <Layout>
     <SEO title="ILEditor - The future of IBM i" />
@@ -255,7 +291,7 @@ const Home = () => (
     <section>
       <Hero src={hero} alt="" />
     </section>
-    <section id="features">
+    <section id="features" style={{ marginBottom: "160px" }}>
       <Subtitle>ILEditor Features</Subtitle>
       <Grid>
         {Cards.map(card => (
@@ -295,7 +331,33 @@ const Home = () => (
         ))}
       </Grid>
     </section>
+    <section id="help" style={{ marginBottom: "160px" }}>
+      <HelpGrid space="large">
+        <HelpColumn>
+          <Subtitle style={{ textAlign: "left" }}>Help &amp; FAQs</Subtitle>
+          <Lead style={{ textAlign: "left" }}>
+            We’re here to help you get set up and using the ILEditor with ease.
+            {/* Don’t see an answer to your question?
+            Get in touch */}
+          </Lead>
+        </HelpColumn>
+        <HelpColumn>
+          {FAQs.map(({ title, description }) => (
+            <Expander title={title} description={description} />
+          ))}
+        </HelpColumn>
+      </HelpGrid>
+    </section>
   </Layout>
 )
+
+const Expander = ({ title, description }) => {
+  return (
+    <div>
+      <h3>{title}</h3>
+      <p style={{ lineHeight: 1.5 }}>{description}</p>
+    </div>
+  )
+}
 
 export default Home
