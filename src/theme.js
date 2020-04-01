@@ -5,10 +5,11 @@ export const theme = {
   fontSizes: [16, 18, 20, 22, 24, 34, 72],
   colors: {
     brand: "#0065FF",
+    lightBrand: "#004170",
     green: "#12CA88",
     offBlack: "#757575",
     black: "#000",
-    grey: "#E5E5E5",
+    grey: "rgba(0, 101, 255, 0.1)",
     offWhite: "#ECF4FF",
     white: "#fff",
   },

@@ -52,7 +52,8 @@ const ContentsLink = styled(({ active, ...props }) => <Link {...props} />)`
   padding: 0.25rem 0.5rem;
   margin: 0 -0.25rem;
 
-  &:hover {
+  &:hover,
+  &:focus {
     color: ${({ theme, active }) =>
       active ? theme.colors.brand : theme.colors.black};
   }
@@ -99,8 +100,8 @@ const DocsLayout = props => {
             <MDXRenderer>{post.body}</MDXRenderer>
           </Main>
         </Container>
-        <Footer />
       </Wrapper>
+      <Footer />
     </ThemeProvider>
   )
 }

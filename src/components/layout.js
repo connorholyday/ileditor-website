@@ -3,16 +3,9 @@ import { useStaticQuery, graphql } from "gatsby"
 import styled, { ThemeProvider } from "styled-components"
 
 import Header from "./header"
+import Wrapper from "./wrapper"
+import Footer from "./footer"
 import { theme, GlobalStyles, getSpace } from "../theme"
-
-const Wrapper = styled.div`
-  max-width: ${({ theme }) => theme.wrapper};
-  margin: 0 auto;
-`
-
-const Footer = styled.footer`
-  padding: ${getSpace(16)} 0;
-`
 
 const Layout = ({ children }) => {
   const data = useStaticQuery(graphql`
@@ -31,8 +24,8 @@ const Layout = ({ children }) => {
       <Header siteTitle={data.site.siteMetadata.title} />
       <Wrapper>
         <main>{children}</main>
-        <Footer>© {new Date().getFullYear()} Halcyon Tech</Footer>
       </Wrapper>
+      <Footer>© {new Date().getFullYear()} Halcyon Tech</Footer>
     </ThemeProvider>
   )
 }
