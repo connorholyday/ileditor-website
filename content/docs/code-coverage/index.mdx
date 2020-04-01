@@ -2,6 +2,7 @@
 title: Code Coverage
 path: /docs/code-coverage
 date: 2020-03-31
+order: 7
 ---
 
 ![A screenshot showing the code coverage plugin in action](./code-coverage-1.png)
@@ -14,7 +15,7 @@ The coverage tab will display the source code used from the test. If the line is
 
 Internally, the Code Coverage plugin uses the `CODECOV` command. While you can pass in program parameters to this command, the plugin simply calls the program with no parameters:
 
-```
+```clike
 CODECOV CMD(CALL PGM(${library}/${name})) MODULE((${library}/${name} *PGM *ALL))
 ```
 

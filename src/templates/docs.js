@@ -18,6 +18,10 @@ const Container = styled.div`
     line-height: 1.5;
     max-width: 80ch;
   }
+
+  li {
+    margin-bottom: 0.5rem;
+  }
 `
 
 const Sidebar = styled.aside`
@@ -111,11 +115,12 @@ export const pageQuery = graphql`
         author
       }
     }
-    allMdx(sort: { fields: [frontmatter___date], order: DESC }) {
+    allMdx(sort: { fields: [frontmatter___order], order: ASC }) {
       edges {
         node {
           id
           frontmatter {
+            order
             title
             path
           }
