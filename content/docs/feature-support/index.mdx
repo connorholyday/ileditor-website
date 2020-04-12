@@ -1,0 +1,25 @@
+---
+title: Feature Support
+path: /docs/feature-support
+date: 2020-04-12
+order: 1
+---
+
+ILEditor 2 officially supports the following IBM i versions:
+
+* 7.2
+* 7.3
+* 7.4
+
+With that being said, some features are backwards compatible. Use this table to determine feature support:
+
+| Feature | Info |
+|----------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| IFS Browser | Should always work. |
+| Object Browser | Should always work. |
+| Spool Viewer | The Spool Viewer requires db2util* installed on the IBM i you're connected to. |
+| Code Coverage | Requires certain PTFs installed on IBM i. See the Code Coverage page. |
+| Git Client | The git client requires git* installed on the IBM i you're connected to. |
+| Member Editor | There are two versions of the Member Editor. If you have db2util* installed on the IBM i you're connected to, you will be able to use the editor which retains the source dates (SRCDAT column). Without it, it will fallback to the editor which will not show or retain the source dates. |
+
+> * tool can be installed via the yum package manager, which is supported by IBM on IBM i 7.2 and above.
