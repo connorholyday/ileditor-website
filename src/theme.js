@@ -80,7 +80,6 @@ export const GlobalStyles = createGlobalStyle`
     border-spacing:1em;
     thead {
       text-align: left;
-      border-bottom: 5px solid grey;
     }
   }
 

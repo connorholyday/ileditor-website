@@ -197,6 +197,40 @@ const authors = {
 
 const Roadmap = [
   {
+    title: "Finished",
+    items: [
+      {
+        text: "Code Coverage Plugin",
+        authors: [authors.liam],
+      },
+      {
+        text: "Error listing",
+        authors: [authors.liam, authors.connor],
+      },
+      {
+        text: "SRCDAT Support",
+        authors: [authors.connor, authors.liam],
+      },
+    ],
+  },
+  {
+    title: "Coming Soon",
+    items: [
+      {
+        text: "Preset and customizable themes",
+        authors: [authors.connor],
+      },
+      {
+        text: "Public plugin system",
+        authors: [authors.liam, authors.connor],
+      },
+      {
+        text: "Content assist",
+        authors: [authors.liam],
+      },
+    ],
+  },
+  {
     title: "In The Future",
     items: [
       {
@@ -209,41 +243,7 @@ const Roadmap = [
       },
       {
         text: "Quick open",
-        authors: [authors.liam, authors.connor],
-      },
-    ],
-  },
-  {
-    title: "Coming Soon",
-    items: [
-      {
-        text: "Preset and customizable themes",
         authors: [authors.connor],
-      },
-      {
-        text: "SRCDAT Support",
-        authors: [authors.liam, authors.connor],
-      },
-      {
-        text: "Public plugin system",
-        authors: [authors.liam, authors.connor],
-      },
-    ],
-  },
-  {
-    title: "Finished",
-    items: [
-      {
-        text: "Code Coverage Plugin",
-        authors: [authors.liam],
-      },
-      {
-        text: "Error listing",
-        authors: [authors.liam, authors.connor],
-      },
-      {
-        text: "Compiling",
-        authors: [authors.liam, authors.connor],
       },
     ],
   },
@@ -258,13 +258,8 @@ const FAQs = [
   {
     title: "Can my team get support?",
     description:
-      "Absolutely. We are still working out the kinks but we want to help you in any way possible. If you are in need of support with ILEditor 2, we'll have a support email when we've launched.",
+      "Absolutely. We are still working out the kinks but we want to help you in any way possible. If you are in need of support with ILEditor 2, you can reach out to support@ileditor.dev.",
   },
-  // {
-  //   title: "Can my team get support?",
-  //   description:
-  //     "Absolutely. We are still working out the kinks but we want to help you in any way possible. If you are in need of support with ILEditor 2, you can reach out to support@ileditor.dev.",
-  // },
   {
     title: "Where can I report a bug?",
     description:
@@ -273,7 +268,7 @@ const FAQs = [
   {
     title: "How do I get started with ILEditor 2?",
     description:
-      "Either check out our documentation or see our introductory videos!",
+      "Either check out our documentation or see our introductory videos.",
   },
 ]
 
