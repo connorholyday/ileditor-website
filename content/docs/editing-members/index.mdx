@@ -15,4 +15,10 @@ You are able to right-click on source physical-files and members which will show
 
 You can save with Ctrl + S / Command + S, plus all regular editing shortcuts can be used (like undo, redo, etc).
 
-**Note: as of the initial release of ILEditor 2, the `SRCDAT` column is not retained.** This documentation will be updated accordingly when it is implemented to save & update the column.
+### Source dates
+
+**Note: In order for the source date column to be retained, you will need to have `db2util` installed on your IBM i. `db2util` is available through the yum package manager.**
+
+You will know when the source dates are being retained as you will see the source date appear before the line number when editing. If you do not have `db2util` installed, you will still be able to edit source code but the source date column will not be retained.
+
+![A screenshot showing source dates](./source-dates.png)
