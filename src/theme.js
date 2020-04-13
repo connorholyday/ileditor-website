@@ -74,6 +74,16 @@ export const GlobalStyles = createGlobalStyle`
     font-family: Inter, BlinkMacSystemFont, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
   }
 
+  table {
+    width: 100%;
+    border-collapse:separate; 
+    border-spacing:1em;
+    thead {
+      text-align: left;
+      border-bottom: 5px solid grey;
+    }
+  }
+
   a {
     color: ${({ theme }) => theme.colors.brand};
   }
