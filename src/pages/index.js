@@ -270,6 +270,11 @@ const FAQs = [
     description:
       "Either check out our documentation or see our introductory videos.",
   },
+  {
+    title: "COVID-19 Update",
+    description:
+      "If you are a software developer working for a medical or healthcare business using IBM i, then we are happy to offer a temporary free licence. Please contact us at support@ileditor.dev to find out more.",
+  },
 ]
 
 const Home = () => (
