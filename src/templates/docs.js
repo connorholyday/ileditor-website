@@ -26,7 +26,7 @@ const Container = styled.div`
 
 const Sidebar = styled.aside`
   padding: ${getSpace(60)} 0;
-  border-right: 1px solid ${({ theme }) => theme.colors.grey};
+  border-right: 1px solid ${({ theme }) => theme.colors.border};
 `
 
 const SideNav = styled.div`
@@ -70,7 +70,7 @@ const DocsLayout = props => {
 
   return (
     <ThemeProvider theme={theme}>
-      <GlobalStyles hideGuidelines solid />
+      <GlobalStyles />
       <SEO title={post.frontmatter.title} description={post.excerpt} />
       <Header siteTitle={siteTitle} slim sticky solid />
       <Wrapper>

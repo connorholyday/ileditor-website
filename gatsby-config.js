@@ -10,7 +10,14 @@ module.exports = {
       resolve: `gatsby-source-filesystem`,
       options: {
         name: `images`,
-        path: `${__dirname}/content/assets`,
+        path: `${__dirname}/content/images`,
+      },
+    },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `videos`,
+        path: `${__dirname}/content/videos`,
       },
     },
     {
@@ -31,7 +38,7 @@ module.exports = {
         background_color: `#0065FF`,
         theme_color: `#0065FF`,
         display: `minimal-ui`,
-        icon: `content/assets/favicon.png`, // This path is relative to the root of the site.
+        icon: `content/images/favicon.png`, // This path is relative to the root of the site.
       },
     },
     `gatsby-plugin-styled-components`,

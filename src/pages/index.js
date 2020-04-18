@@ -1,10 +1,10 @@
 import React from "react"
 import styled from "styled-components"
+import { getSpace } from "../theme"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
-import { getSpace } from "../theme"
+import Logo from "../components/logo"
 import hero from "../assets/hero.svg"
-import cardIcon from "../assets/card-icon.svg"
 
 const CenterSection = styled.section`
   display: flex;
@@ -22,6 +22,7 @@ const Title = styled.h1`
 
 const Intro = styled.p`
   font-size: ${({ theme }) => getSpace(theme.fontSizes[3])};
+  color: ${({ theme }) => theme.colors.grey};
   line-height: 1.4;
   text-align: center;
   max-width: ${getSpace(620)};
@@ -35,11 +36,17 @@ const Button = styled.a`
   text-decoration: none;
   text-align: center;
   color: ${({ theme }) => theme.colors.white};
-  padding: ${({ theme }) =>
-    `${getSpace(theme.fontSizes[0])} ${getSpace(theme.fontSizes[4])}`};
-  background: #0065ff;
-  box-shadow: 0px 0px 24px rgba(0, 101, 255, 0.2);
-  border-radius: 4px;
+  background: ${({ theme }) => theme.colors.brand};
+  border: 2px solid ${({ theme }) => theme.colors.brand};
+  padding: 16px 32px;
+  border-radius: 8px;
+  transition: all 0.1s linear;
+
+  &:hover,
+  &:focus {
+    color: ${({ theme }) => theme.colors.brand};
+    background: ${({ theme }) => theme.colors.white};
+  }
 `
 
 const Lead = styled.p`
@@ -66,25 +73,26 @@ const Hero = styled.img`
 const Grid = styled.section`
   display: grid;
   grid-template-columns: repeat(auto-fill, minMax(300px, 1fr));
-  grid-gap: ${getSpace(32)};
+  grid-gap: ${getSpace(24)};
   margin: ${({ space }) => (space === "large" ? getSpace(72) : getSpace(48))} 0;
 `
 
 const Card = styled.article`
-  background: ${({ theme }) => theme.colors.white};
-  box-shadow: 0px 10px 28px rgba(0, 101, 255, 0.05);
+  background: ${({ theme }) => theme.colors.offWhite};
   border-radius: 12px;
   padding: ${getSpace(32)};
 `
 
-const CardIcon = styled.img`
-  margin-bottom: ${getSpace(8)};
+const CardIcon = styled(Logo)`
+  color: ${({ theme }) => theme.colors.brand};
+  width: 50px;
+  margin-bottom: ${getSpace(20)};
 `
 const CardTitle = styled.h3`
   font-size: ${({ theme }) => getSpace(theme.fontSizes[4])};
   font-weight: 800;
   line-height: 1.3;
-  margin: ${getSpace(12)} 0;
+  margin: 0 0 ${getSpace(12)};
 `
 const CardContent = styled.p`
   font-size: ${({ theme }) => getSpace(theme.fontSizes[0])};
@@ -286,17 +294,18 @@ const Home = () => (
         Bring your development up to speed with the fastest, most advanced tool
         for IBM i development yet.
       </Intro>
-      <Button href="#">Start your free trial</Button>
+      <Button href="https://ileditorweb.herokuapp.com/signup">
+        Get started today
+      </Button>
     </CenterSection>
     <section>
       <Hero src={hero} alt="" />
     </section>
     <section id="features" style={{ marginBottom: "160px" }}>
-      <Subtitle>ILEditor Features</Subtitle>
       <Grid>
         {Cards.map(card => (
           <Card key={card.title}>
-            <CardIcon src={cardIcon} alt="" />
+            <CardIcon />
             <CardTitle>{card.title}</CardTitle>
             <CardContent>{card.content}</CardContent>
           </Card>
@@ -343,7 +352,7 @@ const Home = () => (
         </HelpColumn>
         <HelpColumn>
           {FAQs.map(({ title, description }) => (
-            <Expander title={title} description={description} />
+            <Expander key={title} title={title} description={description} />
           ))}
         </HelpColumn>
       </HelpGrid>

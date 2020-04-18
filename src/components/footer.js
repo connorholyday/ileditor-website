@@ -7,7 +7,7 @@ const Footer = styled.footer`
   padding: ${getSpace(60)} 0;
   background: ${({ theme }) => theme.colors.white};
   color: ${({ theme }) => theme.colors.black};
-  border-top: 1px solid ${({ theme }) => theme.colors.grey};
+  border-top: 1px solid ${({ theme }) => theme.colors.border};
 `
 
 const Content = styled.div`

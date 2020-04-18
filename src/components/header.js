@@ -14,7 +14,7 @@ const Header = styled.header`
     css`
       position: sticky;
       top: 0;
-      border-bottom: 1px solid ${({ theme }) => theme.colors.grey};
+      border-bottom: 1px solid ${({ theme }) => theme.colors.border};
     `}
 `
 
@@ -28,9 +28,15 @@ const Wrapper = styled.div`
   justify-content: space-between;
 `
 
+const Home = styled.div`
+  flex: 1;
+`
+
 const Nav = styled.nav`
+  flex: 2;
   display: flex;
   align-items: center;
+  justify-content: center;
 `
 
 const NavLink = styled(Link)`
@@ -38,14 +44,39 @@ const NavLink = styled(Link)`
   font-size: ${({ theme }) => getSpace(theme.fontSizes[0])};
   line-height: 1.2;
   text-align: center;
-  color: #000000;
+  color: ${({ active, theme }) =>
+    active ? theme.colors.white : theme.colors.black};
   text-decoration: none;
   margin: 0 ${getSpace(20)};
+  position: relative;
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: -4px;
+    right: -8px;
+    bottom: -4px;
+    left: -8px;
+    background: transparent;
+    border-radius: 4px;
+    z-index: -1;
+    ${({ theme, active }) => active && `background: ${theme.colors.brand};`}
+  }
 
   &:hover,
   &:focus {
-    color: ${({ theme }) => theme.colors.brand};
+    color: ${({ theme }) => theme.colors.white};
+
+    &::before {
+      background: ${({ theme }) => theme.colors.brand};
+    }
   }
+`
+
+const Buttons = styled.div`
+  flex: 1;
+  display: flex;
+  justify-content: flex-end;
 `
 
 const Button = styled.a`
@@ -55,39 +86,42 @@ const Button = styled.a`
   text-decoration: none;
   text-align: center;
   color: ${({ theme }) => theme.colors.brand};
-  padding: ${({ theme }) =>
-    `${getSpace(theme.fontSizes[0])} ${getSpace(theme.fontSizes[4])}`};
+  padding: 12px 24px;
   background: #ffffff;
-  box-shadow: 0px 0px 16px rgba(0, 101, 255, 0.13);
-  border-radius: 4px;
-`
-
-const Construction = styled.div`
-  position: fixed;
-  top: 1em;
-  left: 1em;
-  color: white;
-  font-weight: bold;
-  font-size: 16px;
-  background: #fd9644;
-  padding: 0.5em;
+  border: 2px solid ${({ theme }) => theme.colors.brand};
   border-radius: 8px;
+  transition: all 0.1s linear;
+
+  &:first-child {
+    margin-right: 16px;
+  }
+
+  &:hover,
+  &:focus {
+    background: ${({ theme }) => theme.colors.brand};
+    color: ${({ theme }) => theme.colors.white};
+  }
 `
 
 export default ({ slim, sticky, solid }) => (
   <Header sticky={sticky} solid={solid}>
-    <Construction>Under Construction</Construction>
     <Wrapper slim={slim}>
-      <Link to="/">
-        <img src={logo} alt="ILEditor2 Logo" />
-      </Link>
+      <Home>
+        <Link to="/">
+          <img src={logo} alt="ILEditor2 Logo" />
+        </Link>
+      </Home>
       <Nav>
         <NavLink to="/#features">Features</NavLink>
         <NavLink to="/docs">Documentation</NavLink>
         <NavLink to="/#roadmap">Roadmap</NavLink>
-        <NavLink to="/#help">Help &amp; FAQs</NavLink>
+        <NavLink to="/#help">FAQs</NavLink>
+        <NavLink to="/#pricing">Pricing</NavLink>
       </Nav>
-      <Button href="/">Buy Now</Button>
+      <Buttons>
+        <Button href="https://ileditorweb.herokuapp.com/signup">Sign Up</Button>
+        <Button href="https://ileditorweb.herokuapp.com/login">Sign In</Button>
+      </Buttons>
     </Wrapper>
   </Header>
 )
