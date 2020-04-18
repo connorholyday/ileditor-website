@@ -5,6 +5,14 @@ import Layout from "../components/layout"
 import SEO from "../components/seo"
 import Logo from "../components/logo"
 import hero from "../assets/hero.svg"
+import ArrowCircle from "../components/arrow-circle.js"
+import {
+  Accordion,
+  AccordionItem,
+  AccordionButton,
+  AccordionPanel,
+} from "@reach/accordion"
+import "@reach/accordion/styles.css"
 
 const CenterSection = styled.section`
   display: flex;
@@ -26,7 +34,7 @@ const Intro = styled.p`
   line-height: 1.4;
   text-align: center;
   max-width: ${getSpace(620)};
-  margin: ${getSpace(24)} auto ${getSpace(40)};
+  margin: 0 auto ${getSpace(40)};
 `
 
 const Button = styled.a`
@@ -150,6 +158,18 @@ const Author = styled.div`
   }
 `
 
+const HelpCopy = styled.p`
+  font-size: ${({ theme }) => getSpace(theme.fontSizes[2])};
+  line-height: 1.4;
+  text-align: left;
+  max-width: ${getSpace(570)};
+  margin: 0 auto;
+
+  &:not(:last-of-type) {
+    margin-bottom: 1em;
+  }
+`
+
 const HelpGrid = styled.section`
   display: grid;
   grid-template-columns: minMax(300px, 1fr) minMax(600px, 2fr);
@@ -158,6 +178,55 @@ const HelpGrid = styled.section`
 `
 
 const HelpColumn = styled.div``
+
+const HelpPanel = styled(AccordionItem)`
+  background: ${({ theme }) => theme.colors.offBlue};
+  border-radius: 12px;
+  padding: 32px;
+
+  &:not(:last-of-type) {
+    margin-bottom: 24px;
+  }
+`
+
+const HelpTitleWrap = styled.h3`
+  margin: 0;
+`
+
+const HelpIcon = styled(ArrowCircle)`
+  color: ${({ theme }) => theme.colors.brand};
+  width: 32px;
+  transition: transform 0.2s ease;
+
+  [data-state="open"] & {
+    transform: rotate(-0.5turn);
+  }
+`
+
+const HelpTitle = styled(AccordionButton)`
+  background: none;
+  border: none;
+  margin: 0;
+  padding: 0;
+  font-family: Inter;
+  font-weight: 600;
+  font-size: ${({ theme }) => theme.fontSizes[4]}px;
+  line-height: 1.3;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  cursor: pointer;
+
+  &:focus {
+    outline: 0;
+  }
+`
+
+const HelpContent = styled(AccordionPanel)`
+  margin-top: 24px;
+  line-height: 1.5;
+`
 
 const Cards = [
   {
@@ -344,29 +413,32 @@ const Home = () => (
       <HelpGrid space="large">
         <HelpColumn>
           <Subtitle style={{ textAlign: "left" }}>Help &amp; FAQs</Subtitle>
-          <Lead style={{ textAlign: "left" }}>
+          <HelpCopy>
             We’re here to help you get set up and using the ILEditor with ease.
-            {/* Don’t see an answer to your question?
-            Get in touch */}
-          </Lead>
+          </HelpCopy>
+          <HelpCopy>Don’t see an answer to your question?</HelpCopy>
+          <HelpCopy>
+            <a href="mailto:support@ileditor.dev">Get in touch.</a>
+          </HelpCopy>
         </HelpColumn>
         <HelpColumn>
-          {FAQs.map(({ title, description }) => (
-            <Expander key={title} title={title} description={description} />
-          ))}
+          <Accordion collapsible multiple>
+            {FAQs.map(({ title, description }) => (
+              <HelpPanel key={title}>
+                <HelpTitleWrap>
+                  <HelpTitle>
+                    <span>{title}</span>
+                    <HelpIcon />
+                  </HelpTitle>
+                </HelpTitleWrap>
+                <HelpContent>{description}</HelpContent>
+              </HelpPanel>
+            ))}
+          </Accordion>
         </HelpColumn>
       </HelpGrid>
     </section>
   </Layout>
 )
-
-const Expander = ({ title, description }) => {
-  return (
-    <div>
-      <h3>{title}</h3>
-      <p style={{ lineHeight: 1.5 }}>{description}</p>
-    </div>
-  )
-}
 
 export default Home

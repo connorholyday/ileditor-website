@@ -7,7 +7,7 @@ export default props => (
     viewBox="0 0 300 150"
     {...props}
   >
-    <g clip-path="url(#clip0)">
+    <g clipPath="url(#clip0)">
       <path
         fill="currentColor"
         d="M74.847 0L0 75l74.847 75 74.847-75L74.847 0zM225.153 0l-74.847 75 74.847 75L300 75 225.153 0z"

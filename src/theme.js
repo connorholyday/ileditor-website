@@ -11,6 +11,7 @@ export const theme = {
     grey: "#333",
     black: "#000",
     border: "rgba(0, 101, 255, 0.1)",
+    offBlue: "#F4FBFF",
     offWhite: "#FAFAFA",
     white: "#fff",
   },
@@ -55,5 +56,9 @@ export const GlobalStyles = createGlobalStyle`
 
   a {
     color: ${({ theme }) => theme.colors.brand};
+
+    &:hover {
+      text-decoration: none;
+    }
   }
 `
