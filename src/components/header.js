@@ -114,7 +114,7 @@ export default ({ slim, sticky, solid }) => (
       <Nav>
         <NavLink to="/#features">Features</NavLink>
         <NavLink to="/docs">Documentation</NavLink>
-        <NavLink to="/#roadmap">Roadmap</NavLink>
+        {/* <NavLink to="/#roadmap">Roadmap</NavLink> */}
         <NavLink to="/#help">FAQs</NavLink>
         <NavLink to="/#pricing">Pricing</NavLink>
       </Nav>
