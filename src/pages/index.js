@@ -428,106 +428,104 @@ const Home = () => {
       <section>
         <Hero src={hero} alt="" />
       </section>
-      <section>
-        <Block>
-          <BlockContent>
-            <BlockIcon>
-              <ConsoleIcon />
-            </BlockIcon>
-            <BlockTitle>No hassle compiling</BlockTitle>
-            <BlockCopy>
-              Don’t take your hands away from the keyboard. When you’re working
-              on your RPG, COBOL or C applications, it doesn’t even take one
-              click to compile your applications and see error listings.
-            </BlockCopy>
-          </BlockContent>
-          <BlockMedia>
-            <Tilt
-              options={{
-                reverse: true,
-                max: 25,
-                speed: 1000,
-                reset: false,
-              }}
-              style={{
-                transform:
-                  "perspective(1000px) rotateY(-12deg) scale3d(1.1, 1.1, 1.1)",
-              }}
-            >
-              <BlockImage
-                fluid={data.compiling.childImageSharp.fluid}
-                alt="Code Compiling example"
-              />
-            </Tilt>
-          </BlockMedia>
-        </Block>
-        <Block alternate>
-          <BlockContent>
-            <BlockIcon>
-              <ConsoleIcon />
-            </BlockIcon>
-            <BlockTitle>See it on the inside</BlockTitle>
-            <BlockCopy>
-              ILEditor 2 comes with built-in code coverage support. Not only can
-              you develop your applications, but you can set up test cases to
-              see what code is actually being run.
-            </BlockCopy>
-          </BlockContent>
-          <BlockMedia>
-            <Tilt
-              options={{
-                reverse: true,
-                max: 25,
-                speed: 1000,
-                reset: false,
-              }}
-              style={{
-                transform:
-                  "perspective(1000px) rotateY(12deg) scale3d(1.1, 1.1, 1.1)",
-              }}
-            >
-              <BlockImage
-                fluid={data.codeCoverage.childImageSharp.fluid}
-                alt="Code Coverage example"
-              />
-            </Tilt>
-          </BlockMedia>
-        </Block>
-        <Block>
-          <BlockContent>
-            <BlockIcon>
-              <ConsoleIcon />
-            </BlockIcon>
-            <BlockTitle>Watch it grow</BlockTitle>
-            <BlockCopy>
-              We want developers to live in the future, which is why ILEditor 2
-              comes with a git plugin for IBM i. Develop in any language in the
-              IFS (including RPG, COBOL, C, PHP, etc) and use the git plugin to
-              track &amp; manage source.
-            </BlockCopy>
-          </BlockContent>
-          <BlockMedia>
-            <Tilt
-              options={{
-                reverse: true,
-                max: 25,
-                speed: 1000,
-                reset: false,
-              }}
-              style={{
-                transform:
-                  "perspective(1000px) rotateY(-12deg) scale3d(1.1, 1.1, 1.1)",
-              }}
-            >
-              <BlockImage
-                fluid={data.gitPlugin.childImageSharp.fluid}
-                alt="Git Plugin example"
-              />
-            </Tilt>
-          </BlockMedia>
-        </Block>
-      </section>
-      <section id="features" style={{ marginBottom: "160px" }}>
+      <Block id="features">
+        <BlockContent>
+          <BlockIcon>
+            <ConsoleIcon />
+          </BlockIcon>
+          <BlockTitle>No hassle compiling</BlockTitle>
+          <BlockCopy>
+            Don’t take your hands away from the keyboard. When you’re working on
+            your RPG, COBOL or C applications, it doesn’t even take one click to
+            compile your applications and see error listings.
+          </BlockCopy>
+        </BlockContent>
+        <BlockMedia>
+          <Tilt
+            options={{
+              reverse: true,
+              max: 25,
+              speed: 1000,
+              reset: false,
+            }}
+            style={{
+              transform:
+                "perspective(1000px) rotateY(-12deg) scale3d(1.1, 1.1, 1.1)",
+            }}
+          >
+            <BlockImage
+              fluid={data.compiling.childImageSharp.fluid}
+              alt="Code Compiling example"
+            />
+          </Tilt>
+        </BlockMedia>
+      </Block>
+      <Block alternate>
+        <BlockContent>
+          <BlockIcon>
+            <ConsoleIcon />
+          </BlockIcon>
+          <BlockTitle>See it on the inside</BlockTitle>
+          <BlockCopy>
+            ILEditor 2 comes with built-in code coverage support. Not only can
+            you develop your applications, but you can set up test cases to see
+            what code is actually being run.
+          </BlockCopy>
+        </BlockContent>
+        <BlockMedia>
+          <Tilt
+            options={{
+              reverse: true,
+              max: 25,
+              speed: 1000,
+              reset: false,
+            }}
+            style={{
+              transform:
+                "perspective(1000px) rotateY(12deg) scale3d(1.1, 1.1, 1.1)",
+            }}
+          >
+            <BlockImage
+              fluid={data.codeCoverage.childImageSharp.fluid}
+              alt="Code Coverage example"
+            />
+          </Tilt>
+        </BlockMedia>
+      </Block>
+      <Block>
+        <BlockContent>
+          <BlockIcon>
+            <ConsoleIcon />
+          </BlockIcon>
+          <BlockTitle>Watch it grow</BlockTitle>
+          <BlockCopy>
+            We want developers to live in the future, which is why ILEditor 2
+            comes with a git plugin for IBM i. Develop in any language in the
+            IFS (including RPG, COBOL, C, PHP, etc) and use the git plugin to
+            track &amp; manage source.
+          </BlockCopy>
+        </BlockContent>
+        <BlockMedia>
+          <Tilt
+            options={{
+              reverse: true,
+              max: 25,
+              speed: 1000,
+              reset: false,
+            }}
+            style={{
+              transform:
+                "perspective(1000px) rotateY(-12deg) scale3d(1.1, 1.1, 1.1)",
+            }}
+          >
+            <BlockImage
+              fluid={data.gitPlugin.childImageSharp.fluid}
+              alt="Git Plugin example"
+            />
+          </Tilt>
+        </BlockMedia>
+      </Block>
+      <section style={{ marginBottom: "160px" }}>
         <Grid>
           {Cards.map(card => (
             <Card key={card.title}>
