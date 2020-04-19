@@ -23,7 +23,7 @@ import "@reach/accordion/styles.css"
 const Section = styled.section`
   margin-bottom: ${getSpace(80)};
 
-  @media (min-width: 678px) {
+  @media (min-width: 1240px) {
     margin-bottom: ${getSpace(160)};
   }
 `
@@ -34,7 +34,7 @@ const CenterSection = styled.section`
   align-items: center;
   margin-bottom: ${getSpace(80)};
 
-  @media (min-width: 678px) {
+  @media (min-width: 1240px) {
     margin: 0;
   }
 `
@@ -46,7 +46,7 @@ const Title = styled.h1`
   text-align: center;
   margin: ${getSpace(40)} 0 ${getSpace(24)};
 
-  @media (min-width: 678px) {
+  @media (min-width: 1240px) {
     font-size: ${({ theme }) => getSpace(theme.fontSizes[6])};
   }
 `
@@ -59,7 +59,7 @@ const Intro = styled.p`
   max-width: ${getSpace(620)};
   margin: 0 auto ${getSpace(40)};
 
-  @media (min-width: 678px) {
+  @media (min-width: 1240px) {
     font-size: ${({ theme }) => getSpace(theme.fontSizes[3])};
   }
 `
@@ -91,7 +91,7 @@ const Subtitle = styled.h1`
   text-align: center;
   margin: ${getSpace(24)} 0;
 
-  @media (min-width: 678px) {
+  @media (min-width: 1240px) {
     font-size: ${({ theme }) => getSpace(theme.fontSizes[5])};
   }
 `
@@ -99,7 +99,7 @@ const Subtitle = styled.h1`
 const HeroSection = styled.section`
   display: none;
 
-  @media (min-width: 678px) {
+  @media (min-width: 1240px) {
     display: block;
     position: relative;
     margin: 0 ${getSpace(-80)};
@@ -144,10 +144,27 @@ const Block = styled.section`
   display: flex;
   flex-direction: column;
 
-  @media (min-width: 678px) {
+  @media (min-width: 768px) {
     flex-direction: ${({ alternate }) => (alternate ? "row-reverse" : "row")};
+    align-items: center;
     padding: 48px 64px;
     margin-bottom: 104px;
+    overflow: hidden;
+
+    ${BlockContent} {
+      padding: 36px 0;
+      ${({ alternate }) =>
+        alternate ? "margin-left: 64px;" : "margin-right: 64px;"}
+    }
+
+    ${BlockMedia} {
+      ${({ alternate }) =>
+        alternate ? "margin-left: -56px;" : "margin-right: -56px;"}
+    }
+  }
+
+  @media (min-width: 1240px) {
+    overflow: visible;
 
     ${BlockContent} {
       padding: 72px 0;
@@ -173,7 +190,7 @@ const BlockTitle = styled.h3`
   color: ${({ theme }) => theme.colors.grey};
   margin: 24px 0 16px;
 
-  @media (min-width: 678px) {
+  @media (min-width: 1240px) {
     font-size: ${({ theme }) => getSpace(theme.fontSizes[5])};
   }
 `
@@ -184,7 +201,7 @@ const BlockCopy = styled.p`
   color: ${({ theme }) => theme.colors.grey};
   margin-bottom: 3rem;
 
-  @media (min-width: 678px) {
+  @media (min-width: 1240px) {
     margin-bottom: 0;
   }
 `
@@ -200,7 +217,7 @@ const Grid = styled.div`
   grid-gap: ${getSpace(24)};
   padding: ${getSpace(24)};
 
-  @media (min-width: 678px) {
+  @media (min-width: 1240px) {
     padding: 0;
     margin: ${({ space }) => (space === "large" ? getSpace(72) : getSpace(48))}
       0;
@@ -212,7 +229,7 @@ const Card = styled.article`
   border-radius: 12px;
   padding: ${getSpace(24)};
 
-  @media (min-width: 678px) {
+  @media (min-width: 1240px) {
     padding: ${getSpace(32)};
   }
 `
@@ -228,7 +245,7 @@ const CardTitle = styled.h3`
   line-height: 1.3;
   margin: 0 0 ${getSpace(12)};
 
-  @media (min-width: 678px) {
+  @media (min-width: 1240px) {
     font-size: ${({ theme }) => getSpace(theme.fontSizes[4])};
   }
 `
@@ -243,7 +260,7 @@ const HelpCopy = styled.p`
   line-height: 1.4;
   text-align: left;
   max-width: ${getSpace(570)};
-  margin: 0 auto;
+  margin: 0;
 
   &:not(:last-of-type) {
     margin-bottom: 1em;
@@ -257,8 +274,11 @@ const HelpGrid = styled.section`
   padding: ${getSpace(24)};
   margin: ${getSpace(72)} 0;
 
-  @media (min-width: 678px) {
+  @media (min-width: 1024px) {
     grid-template-columns: minMax(300px, 1fr) minMax(600px, 2fr);
+  }
+
+  @media (min-width: 1240px) {
     padding: 0;
   }
 `
@@ -270,7 +290,7 @@ const HelpPanel = styled(AccordionItem)`
   border-radius: 12px;
   padding: ${getSpace(16)};
 
-  @media (min-width: 678px) {
+  @media (min-width: 1240px) {
     padding: ${getSpace(32)};
   }
 
@@ -309,7 +329,7 @@ const HelpTitle = styled(AccordionButton)`
   text-align: left;
   cursor: pointer;
 
-  @media (min-width: 678px) {
+  @media (min-width: 1240px) {
     font-size: ${({ theme }) => getSpace(theme.fontSizes[4])};
   }
 

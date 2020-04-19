@@ -148,11 +148,14 @@ const Pricing = styled.section`
   margin-bottom: ${getSpace(80)};
   overflow: hidden;
 
-  @media (min-width: 678px) {
+  @media (min-width: 940px) {
     grid-template-columns: 1fr 1fr 1fr;
-    padding: 0;
     margin-bottom: ${getSpace(160)};
     overflow: visible;
+  }
+
+  @media (min-width: 1240px) {
+    padding: 0;
   }
 `
 
@@ -162,7 +165,7 @@ const PricingMain = styled.div`
   background: ${({ theme }) => theme.colors.offWhite};
   padding: ${getSpace(24)};
 
-  @media (min-width: 678px) {
+  @media (min-width: 940px) {
     grid-column: span 2;
     padding: ${getSpace(56)};
   }
@@ -186,7 +189,7 @@ const PricingTitle = styled.h4`
   line-height: 1.3;
   margin: 0 0 24px;
 
-  @media (min-width: 678px) {
+  @media (min-width: 768px) {
     max-width: 485px;
   }
 `
@@ -216,7 +219,7 @@ const PriceList = styled.ul`
   margin: 0 0 24px;
   padding: 0;
 
-  @media (min-width: 678px) {
+  @media (min-width: 640px) {
     grid-template-columns: 1fr 1fr;
   }
 `

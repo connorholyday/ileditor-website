@@ -9,7 +9,11 @@ const Footer = styled.footer`
   color: ${({ theme }) => theme.colors.black};
   border-top: 1px solid ${({ theme }) => theme.colors.border};
 
-  @media (min-width: 678px) {
+  @media (min-width: 640px) {
+    padding: ${getSpace(60)} ${getSpace(24)};
+  }
+
+  @media (min-width: 1240px) {
     padding: ${getSpace(60)} 0;
   }
 `
@@ -18,7 +22,7 @@ const Content = styled.div`
   display: flex;
   flex-direction: column-reverse;
 
-  @media (min-width: 678px) {
+  @media (min-width: 640px) {
     flex-direction: row;
     justify-content: space-between;
   }
@@ -28,7 +32,7 @@ const Copyright = styled.p`
   margin-top: ${getSpace(16)};
   margin-bottom: 0;
 
-  @media (min-width: 678px) {
+  @media (min-width: 640px) {
     margin: 0;
   }
 `

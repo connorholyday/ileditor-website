@@ -7,7 +7,7 @@ import Menu from "./menu"
 import Close from "./close"
 
 const Hamburger = styled(Menu)`
-  @media (min-width: 678px) {
+  @media (min-width: 1240px) {
     display: none;
   }
 `
@@ -17,7 +17,7 @@ const CloseIcon = styled(Close)`
   top: 3.3em;
   right: 1.8em;
 
-  @media (min-width: 678px) {
+  @media (min-width: 1240px) {
     display: none;
   }
 `
@@ -46,7 +46,7 @@ const Wrapper = styled.div`
   align-items: center;
   justify-content: space-between;
 
-  @media (min-width: 678px) {
+  @media (min-width: 1240px) {
     padding: ${({ slim }) => (slim ? getSpace(28) : getSpace(56))} 0;
   }
 `
@@ -68,7 +68,7 @@ const Nav = styled.nav`
   z-index: 1;
   background: white;
 
-  @media (min-width: 678px) {
+  @media (min-width: 1240px) {
     position: static;
     flex: 2;
     display: flex;
@@ -90,7 +90,7 @@ const NavLink = styled(Link)`
   padding: ${getSpace(32)} ${getSpace(8)};
   width: 100%;
 
-  @media (min-width: 678px) {
+  @media (min-width: 1240px) {
     font-size: ${({ theme }) => getSpace(theme.fontSizes[0])};
     padding: 0;
     margin: 0 ${getSpace(20)};
@@ -123,7 +123,7 @@ const NavLink = styled(Link)`
 const Buttons = styled.div`
   display: none;
 
-  @media (min-width: 678px) {
+  @media (min-width: 1240px) {
     flex: 1;
     display: flex;
     justify-content: flex-end;

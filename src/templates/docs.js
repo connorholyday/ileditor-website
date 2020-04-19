@@ -15,7 +15,11 @@ const Container = styled.div`
   grid-template-columns: 1fr;
   padding: ${getSpace(24)};
 
-  @media (min-width: 678px) {
+  @media (min-width: 1024px) {
+    grid-template-columns: 200px 1fr;
+  }
+
+  @media (min-width: 1240px) {
     grid-template-columns: 200px 1fr;
     padding: 0;
   }
@@ -33,7 +37,7 @@ const Container = styled.div`
 const Sidebar = styled.aside`
   overflow: hidden;
 
-  @media (min-width: 678px) {
+  @media (min-width: 1024px) {
     overflow: visible;
     padding: ${getSpace(60)} 0;
     border-right: 1px solid ${({ theme }) => theme.colors.border};
@@ -41,7 +45,7 @@ const Sidebar = styled.aside`
 `
 
 const SideNav = styled.div`
-  @media (min-width: 678px) {
+  @media (min-width: 1024px) {
     position: sticky;
     top: 12.5rem;
   }
@@ -57,7 +61,7 @@ const Contents = styled.ul`
   overflow-y: hidden;
   -webkit-overflow-scrolling: touch;
 
-  @media (min-width: 678px) {
+  @media (min-width: 1024px) {
     white-space: initial;
     overflow: hidden;
   }
@@ -68,7 +72,7 @@ const ContentsItem = styled.li`
   margin-bottom: 0.25rem;
   display: inline-block;
 
-  @media (min-width: 678px) {
+  @media (min-width: 1024px) {
     margin-right: 0;
     white-space: initial;
     overflow: hidden;
@@ -84,7 +88,7 @@ const ContentsLink = styled(({ active, ...props }) => <Link {...props} />)`
   padding: 1em 0;
   margin: 0;
 
-  @media (min-width: 678px) {
+  @media (min-width: 1024px) {
     padding: 0.25rem 0.5rem;
     margin: 0 -0.25rem;
   }
@@ -97,7 +101,7 @@ const ContentsLink = styled(({ active, ...props }) => <Link {...props} />)`
 `
 
 const Main = styled.main`
-  @media (min-width: 678px) {
+  @media (min-width: 1024px) {
     padding: ${getSpace(60)};
   }
 `
