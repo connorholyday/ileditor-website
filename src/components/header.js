@@ -95,14 +95,9 @@ const NavLink = styled(Link)`
     padding: 0;
     margin: 0 ${getSpace(20)};
     width: auto;
-
-    &::before {
-      display: block;
-    }
   }
 
   &::before {
-    display: none;
     content: "";
     position: absolute;
     top: -4px;
@@ -160,7 +155,7 @@ const Button = styled.a`
 `
 
 export default ({ slim, sticky, solid }) => {
-  const [open, setOpen] = React.useState(true)
+  const [open, setOpen] = React.useState(false)
   return (
     <Header sticky={sticky} solid={solid}>
       <Wrapper slim={slim}>
