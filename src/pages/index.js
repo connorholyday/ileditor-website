@@ -271,7 +271,6 @@ const HelpPanel = styled(AccordionItem)`
   padding: ${getSpace(16)};
 
   @media (min-width: 678px) {
-    font-size: ${({ theme }) => getSpace(theme.fontSizes[4])};
     padding: ${getSpace(32)};
   }
 

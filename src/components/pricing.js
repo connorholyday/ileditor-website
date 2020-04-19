@@ -152,6 +152,7 @@ const Pricing = styled.section`
     grid-template-columns: 1fr 1fr 1fr;
     padding: 0;
     margin-bottom: ${getSpace(160)};
+    overflow: visible;
   }
 `
 
