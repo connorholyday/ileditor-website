@@ -3,6 +3,7 @@ import { Link, useStaticQuery, graphql } from "gatsby"
 import Img from "gatsby-image"
 import styled from "styled-components"
 import Tilt from "react-tilt"
+import Video from "../assets/clip.mp4"
 import { getSpace } from "../theme"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
@@ -10,7 +11,6 @@ import Logo from "../components/logo"
 import hero from "../assets/hero.svg"
 import ArrowCircle from "../components/arrow-circle"
 import ConsoleIcon from "../components/console"
-// import Roadmap from "../components/roadmap"
 import Pricing from "../components/pricing"
 import {
   Accordion,
@@ -71,9 +71,30 @@ const Subtitle = styled.h1`
   margin: ${getSpace(24)} 0;
 `
 
+const HeroSection = styled.section`
+  position: relative;
+  margin: 0 ${getSpace(-80)};
+`
+
 const Hero = styled.img`
   width: 100%;
   margin: ${getSpace(60)} 0 ${getSpace(160)};
+`
+
+const HeroVideoWrapper = styled.div`
+  position: absolute;
+  top: 19%;
+  left: 22.53466076696165%;
+  height: 0;
+  width: 54.852507374631266%;
+  padding-bottom: 62.5%;
+`
+
+const HeroVideo = styled.video`
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
 `
 
 const BlockContent = styled.div`
@@ -304,9 +325,14 @@ const Home = () => {
           Get started today
         </Button>
       </CenterSection>
-      <section>
+      <HeroSection>
+        <HeroVideoWrapper>
+          <HeroVideo autoPlay muted loop>
+            <source src={Video} type="video/mp4" />
+          </HeroVideo>
+        </HeroVideoWrapper>
         <Hero src={hero} alt="" />
-      </section>
+      </HeroSection>
       <Block id="features">
         <BlockContent>
           <BlockIcon>
@@ -415,7 +441,6 @@ const Home = () => {
           ))}
         </Grid>
       </section>
-      {/* <Roadmap /> */}
       <Pricing />
       <section id="help" style={{ marginBottom: "160px" }}>
         <HelpGrid space="large">
