@@ -11,6 +11,7 @@ import hero from "../assets/hero.svg"
 import ArrowCircle from "../components/arrow-circle"
 import ConsoleIcon from "../components/console"
 // import Roadmap from "../components/roadmap"
+import Pricing from "../components/pricing"
 import {
   Accordion,
   AccordionItem,
@@ -54,27 +55,6 @@ const Button = styled.a`
   padding: 16px 32px;
   border-radius: 8px;
   transition: all 0.1s linear;
-
-  &:hover,
-  &:focus {
-    color: ${({ theme }) => theme.colors.brand};
-    background: ${({ theme }) => theme.colors.white};
-  }
-`
-
-const SmallButton = styled.a`
-  font-weight: 800;
-  font-size: 18px;
-  line-height: 1.3;
-  text-decoration: none;
-  text-align: center;
-  color: ${({ theme }) => theme.colors.white};
-  background: ${({ theme }) => theme.colors.brand};
-  border: 2px solid ${({ theme }) => theme.colors.brand};
-  padding: 16px 24px;
-  border-radius: 8px;
-  transition: all 0.1s linear;
-  display: inline-block;
 
   &:hover,
   &:focus {
@@ -178,126 +158,6 @@ const CardTitle = styled.h3`
 const CardContent = styled.p`
   font-size: ${({ theme }) => getSpace(theme.fontSizes[0])};
   line-height: 1.5;
-  margin: 0;
-`
-
-const Pricing = styled.section`
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  grid-gap: ${getSpace(24)};
-`
-
-const PricingMain = styled.div`
-  grid-column: span 2;
-  border-radius: 12px;
-  background: ${({ theme }) => theme.colors.offWhite};
-  padding: 56px;
-`
-
-const Pill = styled.span`
-  background: #12ca88;
-  border-radius: 6px;
-  padding: 4px 12px;
-  font-weight: 800;
-  font-size: 14px;
-  line-height: 1.5;
-  color: #ffffff;
-  display: inline-block;
-  margin-bottom: 16px;
-`
-
-const PricingTitle = styled.h4`
-  font-weight: 800;
-  font-size: 28px;
-  line-height: 1.3;
-  margin: 0 0 24px;
-  max-width: 485px;
-`
-
-const PriceContainer = styled.div`
-  margin-bottom: 24px;
-`
-
-const Price = styled.span`
-  font-weight: bold;
-  font-size: 40px;
-  line-height: 1.3;
-  margin-right: 8px;
-`
-
-const PriceDetail = styled.span`
-  font-weight: bold;
-  font-size: 18px;
-  line-height: 1.5;
-`
-
-const PriceList = styled.ul`
-  list-style-type: none;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-gap: 16px;
-  margin: 0 0 24px;
-  padding: 0;
-`
-
-const PriceItem = styled.li`
-  margin: 0;
-  padding: 0 0 0 28px;
-  max-width: 260px;
-  font-size: 16px;
-  color: #333;
-  line-height: 1.5;
-  position: relative;
-
-  &::before {
-    content: "";
-    width: 0.71rem;
-    height: 0.71rem;
-    position: absolute;
-    top: 5px;
-    left: 0;
-    background: linear-gradient(
-      137.85deg,
-      #47bdff -2.17%,
-      #6ffaf2 -2.16%,
-      #62e3ff 37.04%,
-      #62e3ff 67.29%,
-      #4fffb5 105.38%
-    );
-    transform: rotate(45deg);
-  }
-`
-
-const PricingAside = styled.div`
-  flex: 1;
-`
-
-const PricingAsideContainer = styled.div`
-  background: #f4fbff;
-  border-radius: 12px;
-  margin-bottom: 16px;
-  padding: 40px 32px;
-`
-
-const PricingAsideTitle = styled.h4`
-  font-weight: 800;
-  font-size: 28px;
-  line-height: 1.3;
-  color: #40b2f1;
-  margin: 0 0 16px;
-`
-
-const PricingAsideCopy = styled.p`
-  font-size: 18px;
-  line-height: 1.5;
-  color: #333333;
-  margin: 0 0 24px;
-`
-
-const PricingAsideAsterisk = styled.p`
-  font-size: 16px;
-  line-height: 1.5;
-  color: #676767;
   margin: 0;
 `
 
@@ -556,42 +416,7 @@ const Home = () => {
         </Grid>
       </section>
       {/* <Roadmap /> */}
-      <Pricing id="pricing" style={{ marginBottom: "160px" }}>
-        <PricingMain>
-          <Pill>Limited offer</Pill>
-          <PricingTitle>Sign up today and join our community</PricingTitle>
-          <PriceContainer>
-            <Price>£24.99</Price>
-            <PriceDetail>per month</PriceDetail>
-          </PriceContainer>
-          <PriceList>
-            <PriceItem>Rolling monthly contract, cancel any time!</PriceItem>
-            <PriceItem>Regular updates and on-hand support</PriceItem>
-            <PriceItem>
-              View all issues and feature requests on our public board
-            </PriceItem>
-            <PriceItem>Open plugin system coming soon</PriceItem>
-          </PriceList>
-          <SmallButton href="https://ileditorweb.herokuapp.com/signup">
-            Sign Up
-          </SmallButton>
-        </PricingMain>
-        <PricingAside>
-          <PricingAsideContainer>
-            <PricingAsideTitle>COVID-19 Notice</PricingAsideTitle>
-            <PricingAsideCopy>
-              We are offereing free* licences to software developers working in
-              the medical or healthcare industry using IBM i.
-            </PricingAsideCopy>
-            <SmallButton href="mailto:support@ileditor.dev">
-              Get in touch
-            </SmallButton>
-          </PricingAsideContainer>
-          <PricingAsideAsterisk>
-            * This license will be free for one month
-          </PricingAsideAsterisk>
-        </PricingAside>
-      </Pricing>
+      <Pricing />
       <section id="help" style={{ marginBottom: "160px" }}>
         <HelpGrid space="large">
           <HelpColumn>
