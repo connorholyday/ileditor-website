@@ -1,11 +1,15 @@
 import React from "react"
+import { Link, useStaticQuery, graphql } from "gatsby"
+import Img from "gatsby-image"
 import styled from "styled-components"
+import Tilt from "react-tilt"
 import { getSpace } from "../theme"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 import Logo from "../components/logo"
 import hero from "../assets/hero.svg"
 import ArrowCircle from "../components/arrow-circle.js"
+import ConsoleIcon from "../components/console.js"
 import {
   Accordion,
   AccordionItem,
@@ -76,6 +80,61 @@ const Subtitle = styled.h1`
 const Hero = styled.img`
   width: 100%;
   margin: ${getSpace(60)} 0 ${getSpace(160)};
+`
+
+const BlockContent = styled.div`
+  flex: 1;
+  max-width: 400px;
+`
+
+const BlockMedia = styled.div`
+  flex: 1;
+`
+
+const Block = styled.section`
+  background: ${({ alternate, theme }) =>
+    alternate ? theme.colors.white : theme.colors.offBlue};
+  padding: 48px 64px;
+  margin-bottom: 104px;
+  display: flex;
+  flex-direction: ${({ alternate }) => (alternate ? "row-reverse" : "row")};
+
+  ${BlockContent} {
+    padding: 72px 0;
+    ${({ alternate }) =>
+      alternate ? "margin-left: 128px;" : "margin-right: 128px;"}
+  }
+
+  ${BlockMedia} {
+    ${({ alternate }) =>
+      alternate ? "margin-left: -112px;" : "margin-right: -112px;"}
+  }
+`
+
+const BlockIcon = styled.div`
+  width: 51px;
+`
+
+const BlockTitle = styled.h3`
+  font-size: ${({ theme }) => theme.fontSizes[5]}px;
+  font-weight: 800;
+  line-height: 1.3;
+  color: ${({ theme }) => theme.colors.grey};
+  margin: 24px 0 16px;
+`
+
+const BlockCopy = styled.p`
+  font-family: Inter;
+  font-style: normal;
+  font-weight: normal;
+  font-size: ${({ theme }) => theme.fontSizes[1]}px;
+  line-height: 1.5;
+  color: ${({ theme }) => theme.colors.grey};
+`
+
+const BlockImage = styled(Img)`
+  box-shadow: 15px 20px 95px rgba(0, 0, 0, 0.15);
+  cursor: crosshair;
 `
 
 const Grid = styled.section`
@@ -326,119 +385,282 @@ const Roadmap = [
   },
 ]
 
-const FAQs = [
-  {
-    title: "Can I get a free trial?",
-    description:
-      "While ILEditor 2 is in open-beta, we are not offering free trials. You can expect to see this by the time we reach 1.0.",
-  },
-  {
-    title: "Can my team get support?",
-    description:
-      "Absolutely. We are still working out the kinks but we want to help you in any way possible. If you are in need of support with ILEditor 2, you can reach out to support@ileditor.dev.",
-  },
-  {
-    title: "Where can I report a bug?",
-    description:
-      "You can report a bug for ILEditor 2 or the website on the public GitHub repository.",
-  },
-  {
-    title: "How do I get started with ILEditor 2?",
-    description:
-      "Either check out our documentation or see our introductory videos.",
-  },
-  {
-    title: "COVID-19 Update",
-    description:
-      "If you are a software developer working for a medical or healthcare business using IBM i, then we are happy to offer a temporary free licence. Please contact us at support@ileditor.dev to find out more.",
-  },
-]
+const Home = () => {
+  const data = useStaticQuery(graphql`
+    query {
+      compiling: file(relativePath: { eq: "compiling.png" }) {
+        childImageSharp {
+          fluid(quality: 100) {
+            ...GatsbyImageSharpFluid
+          }
+        }
+      }
+      codeCoverage: file(relativePath: { eq: "coverage.png" }) {
+        childImageSharp {
+          fluid(quality: 100) {
+            ...GatsbyImageSharpFluid
+          }
+        }
+      }
+      gitPlugin: file(relativePath: { eq: "git-client.png" }) {
+        childImageSharp {
+          fluid(quality: 100) {
+            ...GatsbyImageSharpFluid
+          }
+        }
+      }
+    }
+  `)
 
-const Home = () => (
-  <Layout>
-    <SEO title="ILEditor - The future of IBM i" />
-    <CenterSection>
-      <Title>The future of IBM i</Title>
-      <Intro>
-        Bring your development up to speed with the fastest, most advanced tool
-        for IBM i development yet.
-      </Intro>
-      <Button href="https://ileditorweb.herokuapp.com/signup">
-        Get started today
-      </Button>
-    </CenterSection>
-    <section>
-      <Hero src={hero} alt="" />
-    </section>
-    <section id="features" style={{ marginBottom: "160px" }}>
-      <Grid>
-        {Cards.map(card => (
-          <Card key={card.title}>
-            <CardIcon />
-            <CardTitle>{card.title}</CardTitle>
-            <CardContent>{card.content}</CardContent>
-          </Card>
-        ))}
-      </Grid>
-    </section>
-    <section id="roadmap">
-      <Subtitle>Product Roadmap</Subtitle>
-      <Lead>
-        We’re continually working on improving the editor to make it the best it
-        can be for you.
-      </Lead>
-      <Grid space="large">
-        {Roadmap.map(column => (
-          <Column key={column.title}>
-            <ColumnTitle>{column.title}</ColumnTitle>
-            <div>
-              {column.items.map(item => (
-                <SmallCard key={item.text}>
-                  <SmallCardText>{item.text}</SmallCardText>
-                  <Authors>
-                    {item.authors.map(author => (
-                      <Author key={author.initials} color={author.color}>
-                        {author.initials}
-                      </Author>
-                    ))}
-                  </Authors>
-                </SmallCard>
-              ))}
-            </div>
-          </Column>
-        ))}
-      </Grid>
-    </section>
-    <section id="help" style={{ marginBottom: "160px" }}>
-      <HelpGrid space="large">
-        <HelpColumn>
-          <Subtitle style={{ textAlign: "left" }}>Help &amp; FAQs</Subtitle>
-          <HelpCopy>
-            We’re here to help you get set up and using the ILEditor with ease.
-          </HelpCopy>
-          <HelpCopy>Don’t see an answer to your question?</HelpCopy>
-          <HelpCopy>
-            <a href="mailto:support@ileditor.dev">Get in touch.</a>
-          </HelpCopy>
-        </HelpColumn>
-        <HelpColumn>
-          <Accordion collapsible multiple>
-            {FAQs.map(({ title, description }) => (
-              <HelpPanel key={title}>
+  return (
+    <Layout>
+      <SEO title="ILEditor - The future of IBM i" />
+      <CenterSection>
+        <Title>The future of IBM i</Title>
+        <Intro>
+          Bring your development up to speed with the fastest, most advanced
+          tool for IBM i development yet.
+        </Intro>
+        <Button href="https://ileditorweb.herokuapp.com/signup">
+          Get started today
+        </Button>
+      </CenterSection>
+      <section>
+        <Hero src={hero} alt="" />
+      </section>
+      <section>
+        <Block>
+          <BlockContent>
+            <BlockIcon>
+              <ConsoleIcon />
+            </BlockIcon>
+            <BlockTitle>No hassle compiling</BlockTitle>
+            <BlockCopy>
+              Don’t take your hands away from the keyboard. When you’re working
+              on your RPG, COBOL or C applications, it doesn’t even take one
+              click to compile your applications and see error listings.
+            </BlockCopy>
+          </BlockContent>
+          <BlockMedia>
+            <Tilt
+              options={{
+                reverse: true,
+                max: 25,
+                speed: 1000,
+                reset: false,
+              }}
+              style={{
+                transform:
+                  "perspective(1000px) rotateY(-12deg) scale3d(1.1, 1.1, 1.1)",
+              }}
+            >
+              <BlockImage
+                fluid={data.compiling.childImageSharp.fluid}
+                alt="Code Compiling example"
+              />
+            </Tilt>
+          </BlockMedia>
+        </Block>
+        <Block alternate>
+          <BlockContent>
+            <BlockIcon>
+              <ConsoleIcon />
+            </BlockIcon>
+            <BlockTitle>See it on the inside</BlockTitle>
+            <BlockCopy>
+              ILEditor 2 comes with built-in code coverage support. Not only can
+              you develop your applications, but you can set up test cases to
+              see what code is actually being run.
+            </BlockCopy>
+          </BlockContent>
+          <BlockMedia>
+            <Tilt
+              options={{
+                reverse: true,
+                max: 25,
+                speed: 1000,
+                reset: false,
+              }}
+              style={{
+                transform:
+                  "perspective(1000px) rotateY(12deg) scale3d(1.1, 1.1, 1.1)",
+              }}
+            >
+              <BlockImage
+                fluid={data.codeCoverage.childImageSharp.fluid}
+                alt="Code Coverage example"
+              />
+            </Tilt>
+          </BlockMedia>
+        </Block>
+        <Block>
+          <BlockContent>
+            <BlockIcon>
+              <ConsoleIcon />
+            </BlockIcon>
+            <BlockTitle>Watch it grow</BlockTitle>
+            <BlockCopy>
+              We want developers to live in the future, which is why ILEditor 2
+              comes with a git plugin for IBM i. Develop in any language in the
+              IFS (including RPG, COBOL, C, PHP, etc) and use the git plugin to
+              track &amp; manage source.
+            </BlockCopy>
+          </BlockContent>
+          <BlockMedia>
+            <Tilt
+              options={{
+                reverse: true,
+                max: 25,
+                speed: 1000,
+                reset: false,
+              }}
+              style={{
+                transform:
+                  "perspective(1000px) rotateY(-12deg) scale3d(1.1, 1.1, 1.1)",
+              }}
+            >
+              <BlockImage
+                fluid={data.gitPlugin.childImageSharp.fluid}
+                alt="Git Plugin example"
+              />
+            </Tilt>
+          </BlockMedia>
+        </Block>
+      </section>
+      <section id="features" style={{ marginBottom: "160px" }}>
+        <Grid>
+          {Cards.map(card => (
+            <Card key={card.title}>
+              <CardIcon />
+              <CardTitle>{card.title}</CardTitle>
+              <CardContent>{card.content}</CardContent>
+            </Card>
+          ))}
+        </Grid>
+      </section>
+      <section id="roadmap">
+        <Subtitle>Product Roadmap</Subtitle>
+        <Lead>
+          We’re continually working on improving the editor to make it the best
+          it can be for you.
+        </Lead>
+        <Grid space="large">
+          {Roadmap.map(column => (
+            <Column key={column.title}>
+              <ColumnTitle>{column.title}</ColumnTitle>
+              <div>
+                {column.items.map(item => (
+                  <SmallCard key={item.text}>
+                    <SmallCardText>{item.text}</SmallCardText>
+                    <Authors>
+                      {item.authors.map(author => (
+                        <Author key={author.initials} color={author.color}>
+                          {author.initials}
+                        </Author>
+                      ))}
+                    </Authors>
+                  </SmallCard>
+                ))}
+              </div>
+            </Column>
+          ))}
+        </Grid>
+      </section>
+      <section id="help" style={{ marginBottom: "160px" }}>
+        <HelpGrid space="large">
+          <HelpColumn>
+            <Subtitle style={{ textAlign: "left" }}>Help &amp; FAQs</Subtitle>
+            <HelpCopy>
+              We’re here to help you get set up and using the ILEditor with
+              ease.
+            </HelpCopy>
+            <HelpCopy>Don’t see an answer to your question?</HelpCopy>
+            <HelpCopy>
+              <a href="mailto:support@ileditor.dev">Get in touch.</a>
+            </HelpCopy>
+          </HelpColumn>
+          <HelpColumn>
+            <Accordion collapsible multiple>
+              <HelpPanel>
                 <HelpTitleWrap>
                   <HelpTitle>
-                    <span>{title}</span>
+                    <span>Can I get a free trial?</span>
                     <HelpIcon />
                   </HelpTitle>
                 </HelpTitleWrap>
-                <HelpContent>{description}</HelpContent>
+                <HelpContent>
+                  While ILEditor 2 is in open-beta, we are not offering free
+                  trials. You can expect to see this by the time we reach 1.0.
+                </HelpContent>
               </HelpPanel>
-            ))}
-          </Accordion>
-        </HelpColumn>
-      </HelpGrid>
-    </section>
-  </Layout>
-)
+              <HelpPanel>
+                <HelpTitleWrap>
+                  <HelpTitle>
+                    <span>Can my team get support?</span>
+                    <HelpIcon />
+                  </HelpTitle>
+                </HelpTitleWrap>
+                <HelpContent>
+                  Absolutely. We are still working out the kinks but we want to
+                  help you in any way possible. If you are in need of support
+                  with ILEditor 2, you can reach out to{" "}
+                  <a href="mailto:support@ileditor.dev">support@ileditor.dev</a>
+                  .
+                </HelpContent>
+              </HelpPanel>
+              <HelpPanel>
+                <HelpTitleWrap>
+                  <HelpTitle>
+                    <span>Where can I report a bug?</span>
+                    <HelpIcon />
+                  </HelpTitle>
+                </HelpTitleWrap>
+                <HelpContent>
+                  You can report a bug for ILEditor 2 or the website on the
+                  public{" "}
+                  <a
+                    href="https://github.com/halcyon-tech/ileditor2-issues/issues"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    GitHub repository
+                  </a>
+                  .
+                </HelpContent>
+              </HelpPanel>
+              <HelpPanel>
+                <HelpTitleWrap>
+                  <HelpTitle>
+                    <span>How do I get started with ILEditor 2?</span>
+                    <HelpIcon />
+                  </HelpTitle>
+                </HelpTitleWrap>
+                <HelpContent>
+                  Either check out our <Link to="/docs">documentation</Link> or
+                  see our introductory videos.
+                </HelpContent>
+              </HelpPanel>
+              <HelpPanel>
+                <HelpTitleWrap>
+                  <HelpTitle>
+                    <span>COVID-19 Update</span>
+                    <HelpIcon />
+                  </HelpTitle>
+                </HelpTitleWrap>
+                <HelpContent>
+                  If you are a software developer working for a medical or
+                  healthcare business using IBM i, then we are happy to offer a
+                  temporary free licence. Please contact us at{" "}
+                  <a href="mailto:support@ileditor.dev">support@ileditor.dev</a>{" "}
+                  to find out more.
+                </HelpContent>
+              </HelpPanel>
+            </Accordion>
+          </HelpColumn>
+        </HelpGrid>
+      </section>
+    </Layout>
+  )
+}
 
 export default Home
