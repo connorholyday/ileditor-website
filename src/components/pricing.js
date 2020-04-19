@@ -142,16 +142,29 @@ const SmallButton = styled.a`
 
 const Pricing = styled.section`
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-columns: 1fr;
   grid-gap: ${getSpace(24)};
+  padding: ${getSpace(56)} ${getSpace(24)};
+  margin-bottom: ${getSpace(80)};
+  overflow: hidden;
+
+  @media (min-width: 678px) {
+    grid-template-columns: 1fr 1fr 1fr;
+    padding: 0;
+    margin-bottom: ${getSpace(160)};
+  }
 `
 
 const PricingMain = styled.div`
   position: relative;
-  grid-column: span 2;
   border-radius: 12px;
   background: ${({ theme }) => theme.colors.offWhite};
-  padding: 56px;
+  padding: ${getSpace(24)};
+
+  @media (min-width: 678px) {
+    grid-column: span 2;
+    padding: ${getSpace(56)};
+  }
 `
 
 const Pill = styled.span`
@@ -171,7 +184,10 @@ const PricingTitle = styled.h4`
   font-size: 28px;
   line-height: 1.3;
   margin: 0 0 24px;
-  max-width: 485px;
+
+  @media (min-width: 678px) {
+    max-width: 485px;
+  }
 `
 
 const PriceContainer = styled.div`
@@ -194,10 +210,14 @@ const PriceDetail = styled.span`
 const PriceList = styled.ul`
   list-style-type: none;
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1fr;
   grid-gap: 16px;
   margin: 0 0 24px;
   padding: 0;
+
+  @media (min-width: 678px) {
+    grid-template-columns: 1fr 1fr;
+  }
 `
 
 const PriceItem = styled.li`
@@ -262,7 +282,7 @@ const PricingAsideAsterisk = styled.p`
 `
 
 export default () => (
-  <Pricing id="pricing" style={{ marginBottom: "160px" }}>
+  <Pricing id="pricing">
     <PricingMain>
       <Icon1 />
       <Icon2 />
@@ -291,7 +311,7 @@ export default () => (
         <PricingAsideTitle>COVID-19 Notice</PricingAsideTitle>
         <PricingAsideCopy>
           We are offereing free* licences to software developers working in the
-          medical or healthcare industry using IBM i.
+          medical or healthcare industry using IBM&nbsp;i.
         </PricingAsideCopy>
         <SmallButton href="mailto:support@ileditor.dev">
           Get in touch

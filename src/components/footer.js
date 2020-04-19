@@ -4,19 +4,33 @@ import Wrapper from "./wrapper"
 import { getSpace } from "../theme"
 
 const Footer = styled.footer`
-  padding: ${getSpace(60)} 0;
+  padding: ${getSpace(24)};
   background: ${({ theme }) => theme.colors.white};
   color: ${({ theme }) => theme.colors.black};
   border-top: 1px solid ${({ theme }) => theme.colors.border};
+
+  @media (min-width: 678px) {
+    padding: ${getSpace(60)} 0;
+  }
 `
 
 const Content = styled.div`
   display: flex;
-  justify-content: space-between;
+  flex-direction: column-reverse;
+
+  @media (min-width: 678px) {
+    flex-direction: row;
+    justify-content: space-between;
+  }
 `
 
 const Copyright = styled.p`
-  margin: 0;
+  margin-top: ${getSpace(16)};
+  margin-bottom: 0;
+
+  @media (min-width: 678px) {
+    margin: 0;
+  }
 `
 
 const Link = styled.a`

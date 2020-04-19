@@ -20,27 +20,48 @@ import {
 } from "@reach/accordion"
 import "@reach/accordion/styles.css"
 
+const Section = styled.section`
+  margin-bottom: ${getSpace(80)};
+
+  @media (min-width: 678px) {
+    margin-bottom: ${getSpace(160)};
+  }
+`
+
 const CenterSection = styled.section`
   display: flex;
   flex-direction: column;
   align-items: center;
+  margin-bottom: ${getSpace(80)};
+
+  @media (min-width: 678px) {
+    margin: 0;
+  }
 `
 
 const Title = styled.h1`
-  font-size: ${({ theme }) => getSpace(theme.fontSizes[6])};
+  font-size: ${({ theme }) => getSpace(theme.fontSizes[5])};
   font-weight: 800;
   line-height: 1.3;
   text-align: center;
   margin: ${getSpace(40)} 0 ${getSpace(24)};
+
+  @media (min-width: 678px) {
+    font-size: ${({ theme }) => getSpace(theme.fontSizes[6])};
+  }
 `
 
 const Intro = styled.p`
-  font-size: ${({ theme }) => getSpace(theme.fontSizes[3])};
+  font-size: ${({ theme }) => getSpace(theme.fontSizes[2])};
   color: ${({ theme }) => theme.colors.grey};
   line-height: 1.4;
   text-align: center;
   max-width: ${getSpace(620)};
   margin: 0 auto ${getSpace(40)};
+
+  @media (min-width: 678px) {
+    font-size: ${({ theme }) => getSpace(theme.fontSizes[3])};
+  }
 `
 
 const Button = styled.a`
@@ -64,16 +85,25 @@ const Button = styled.a`
 `
 
 const Subtitle = styled.h1`
-  font-size: ${({ theme }) => getSpace(theme.fontSizes[5])};
+  font-size: ${({ theme }) => getSpace(theme.fontSizes[4])};
   font-weight: 800;
   line-height: 1.3;
   text-align: center;
   margin: ${getSpace(24)} 0;
+
+  @media (min-width: 678px) {
+    font-size: ${({ theme }) => getSpace(theme.fontSizes[5])};
+  }
 `
 
 const HeroSection = styled.section`
-  position: relative;
-  margin: 0 ${getSpace(-80)};
+  display: none;
+
+  @media (min-width: 678px) {
+    display: block;
+    position: relative;
+    margin: 0 ${getSpace(-80)};
+  }
 `
 
 const Hero = styled.img`
@@ -109,20 +139,26 @@ const BlockMedia = styled.div`
 const Block = styled.section`
   background: ${({ alternate, theme }) =>
     alternate ? theme.colors.white : theme.colors.offBlue};
-  padding: 48px 64px;
-  margin-bottom: 104px;
+  padding: 48px 2rem;
+  margin-bottom: 48px;
   display: flex;
-  flex-direction: ${({ alternate }) => (alternate ? "row-reverse" : "row")};
+  flex-direction: column;
 
-  ${BlockContent} {
-    padding: 72px 0;
-    ${({ alternate }) =>
-      alternate ? "margin-left: 128px;" : "margin-right: 128px;"}
-  }
+  @media (min-width: 678px) {
+    flex-direction: ${({ alternate }) => (alternate ? "row-reverse" : "row")};
+    padding: 48px 64px;
+    margin-bottom: 104px;
 
-  ${BlockMedia} {
-    ${({ alternate }) =>
-      alternate ? "margin-left: -112px;" : "margin-right: -112px;"}
+    ${BlockContent} {
+      padding: 72px 0;
+      ${({ alternate }) =>
+        alternate ? "margin-left: 128px;" : "margin-right: 128px;"}
+    }
+
+    ${BlockMedia} {
+      ${({ alternate }) =>
+        alternate ? "margin-left: -112px;" : "margin-right: -112px;"}
+    }
   }
 `
 
@@ -131,20 +167,26 @@ const BlockIcon = styled.div`
 `
 
 const BlockTitle = styled.h3`
-  font-size: ${({ theme }) => theme.fontSizes[5]}px;
+  font-size: ${({ theme }) => getSpace(theme.fontSizes[3])};
   font-weight: 800;
   line-height: 1.3;
   color: ${({ theme }) => theme.colors.grey};
   margin: 24px 0 16px;
+
+  @media (min-width: 678px) {
+    font-size: ${({ theme }) => getSpace(theme.fontSizes[5])};
+  }
 `
 
 const BlockCopy = styled.p`
-  font-family: Inter;
-  font-style: normal;
-  font-weight: normal;
-  font-size: ${({ theme }) => theme.fontSizes[1]}px;
+  font-size: ${({ theme }) => getSpace(theme.fontSizes[1])};
   line-height: 1.5;
   color: ${({ theme }) => theme.colors.grey};
+  margin-bottom: 3rem;
+
+  @media (min-width: 678px) {
+    margin-bottom: 0;
+  }
 `
 
 const BlockImage = styled(Img)`
@@ -152,17 +194,27 @@ const BlockImage = styled(Img)`
   cursor: crosshair;
 `
 
-const Grid = styled.section`
+const Grid = styled.div`
   display: grid;
   grid-template-columns: repeat(auto-fill, minMax(300px, 1fr));
   grid-gap: ${getSpace(24)};
-  margin: ${({ space }) => (space === "large" ? getSpace(72) : getSpace(48))} 0;
+  padding: ${getSpace(24)};
+
+  @media (min-width: 678px) {
+    padding: 0;
+    margin: ${({ space }) => (space === "large" ? getSpace(72) : getSpace(48))}
+      0;
+  }
 `
 
 const Card = styled.article`
   background: ${({ theme }) => theme.colors.offWhite};
   border-radius: 12px;
-  padding: ${getSpace(32)};
+  padding: ${getSpace(24)};
+
+  @media (min-width: 678px) {
+    padding: ${getSpace(32)};
+  }
 `
 
 const CardIcon = styled(Logo)`
@@ -171,10 +223,14 @@ const CardIcon = styled(Logo)`
   margin-bottom: ${getSpace(20)};
 `
 const CardTitle = styled.h3`
-  font-size: ${({ theme }) => getSpace(theme.fontSizes[4])};
+  font-size: ${({ theme }) => getSpace(theme.fontSizes[3])};
   font-weight: 800;
   line-height: 1.3;
   margin: 0 0 ${getSpace(12)};
+
+  @media (min-width: 678px) {
+    font-size: ${({ theme }) => getSpace(theme.fontSizes[4])};
+  }
 `
 const CardContent = styled.p`
   font-size: ${({ theme }) => getSpace(theme.fontSizes[0])};
@@ -196,9 +252,15 @@ const HelpCopy = styled.p`
 
 const HelpGrid = styled.section`
   display: grid;
-  grid-template-columns: minMax(300px, 1fr) minMax(600px, 2fr);
+  grid-template-columns: 1fr;
   grid-gap: ${getSpace(32)};
+  padding: ${getSpace(24)};
   margin: ${getSpace(72)} 0;
+
+  @media (min-width: 678px) {
+    grid-template-columns: minMax(300px, 1fr) minMax(600px, 2fr);
+    padding: 0;
+  }
 `
 
 const HelpColumn = styled.div``
@@ -206,10 +268,15 @@ const HelpColumn = styled.div``
 const HelpPanel = styled(AccordionItem)`
   background: ${({ theme }) => theme.colors.offBlue};
   border-radius: 12px;
-  padding: 32px;
+  padding: ${getSpace(16)};
+
+  @media (min-width: 678px) {
+    font-size: ${({ theme }) => getSpace(theme.fontSizes[4])};
+    padding: ${getSpace(32)};
+  }
 
   &:not(:last-of-type) {
-    margin-bottom: 24px;
+    margin-bottom: ${getSpace(24)};
   }
 `
 
@@ -234,13 +301,18 @@ const HelpTitle = styled(AccordionButton)`
   padding: 0;
   font-family: Inter;
   font-weight: 600;
-  font-size: ${({ theme }) => theme.fontSizes[4]}px;
+  font-size: ${({ theme }) => getSpace(theme.fontSizes[1])};
   line-height: 1.3;
   width: 100%;
   display: flex;
   align-items: center;
   justify-content: space-between;
+  text-align: left;
   cursor: pointer;
+
+  @media (min-width: 678px) {
+    font-size: ${({ theme }) => getSpace(theme.fontSizes[4])};
+  }
 
   &:focus {
     outline: 0;
@@ -316,10 +388,10 @@ const Home = () => {
     <Layout>
       <SEO title="ILEditor - The future of IBM i" />
       <CenterSection>
-        <Title>The future of IBM i</Title>
+        <Title>The future of IBM&nbsp;i</Title>
         <Intro>
           Bring your development up to speed with the fastest, most advanced
-          tool for IBM i development yet.
+          tool for IBM&nbsp;i development yet.
         </Intro>
         <Button href="https://ileditorweb.herokuapp.com/signup">
           Get started today
@@ -405,9 +477,9 @@ const Home = () => {
           <BlockTitle>Watch it grow</BlockTitle>
           <BlockCopy>
             We want developers to live in the future, which is why ILEditor 2
-            comes with a git plugin for IBM i. Develop in any language in the
-            IFS (including RPG, COBOL, C, PHP, etc) and use the git plugin to
-            track &amp; manage source.
+            comes with a git plugin for IBM&nbsp;i. Develop in any language in
+            the IFS (including RPG, COBOL, C, PHP, etc) and use the git plugin
+            to track &amp; manage source.
           </BlockCopy>
         </BlockContent>
         <BlockMedia>
@@ -430,7 +502,7 @@ const Home = () => {
           </Tilt>
         </BlockMedia>
       </Block>
-      <section style={{ marginBottom: "160px" }}>
+      <Section>
         <Grid>
           {Cards.map(card => (
             <Card key={card.title}>
@@ -440,9 +512,9 @@ const Home = () => {
             </Card>
           ))}
         </Grid>
-      </section>
+      </Section>
       <Pricing />
-      <section id="help" style={{ marginBottom: "160px" }}>
+      <Section id="help">
         <HelpGrid space="large">
           <HelpColumn>
             <Subtitle style={{ textAlign: "left" }}>Help &amp; FAQs</Subtitle>
@@ -519,7 +591,7 @@ const Home = () => {
             </Accordion>
           </HelpColumn>
         </HelpGrid>
-      </section>
+      </Section>
     </Layout>
   )
 }
