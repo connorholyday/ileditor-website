@@ -516,21 +516,6 @@ const Home = () => {
                   see our introductory videos.
                 </HelpContent>
               </HelpPanel>
-              <HelpPanel>
-                <HelpTitleWrap>
-                  <HelpTitle>
-                    <span>COVID-19 Update</span>
-                    <HelpIcon />
-                  </HelpTitle>
-                </HelpTitleWrap>
-                <HelpContent>
-                  If you are a software developer working for a medical or
-                  healthcare business using IBM i, then we are happy to offer a
-                  temporary free licence. Please contact us at{" "}
-                  <a href="mailto:support@ileditor.dev">support@ileditor.dev</a>{" "}
-                  to find out more.
-                </HelpContent>
-              </HelpPanel>
             </Accordion>
           </HelpColumn>
         </HelpGrid>
