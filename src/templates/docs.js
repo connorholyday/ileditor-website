@@ -12,7 +12,13 @@ import { theme, GlobalStyles, getSpace } from "../theme"
 
 const Container = styled.div`
   display: grid;
-  grid-template-columns: 200px 1fr;
+  grid-template-columns: 1fr;
+  padding: ${getSpace(24)};
+
+  @media (min-width: 678px) {
+    grid-template-columns: 200px 1fr;
+    padding: 0;
+  }
 
   p {
     line-height: 1.5;
@@ -25,23 +31,49 @@ const Container = styled.div`
 `
 
 const Sidebar = styled.aside`
-  padding: ${getSpace(60)} 0;
-  border-right: 1px solid ${({ theme }) => theme.colors.border};
+  overflow: hidden;
+
+  @media (min-width: 678px) {
+    overflow: visible;
+    padding: ${getSpace(60)} 0;
+    border-right: 1px solid ${({ theme }) => theme.colors.border};
+  }
 `
 
 const SideNav = styled.div`
-  position: sticky;
-  top: 12.5rem;
+  @media (min-width: 678px) {
+    position: sticky;
+    top: 12.5rem;
+  }
 `
 
 const Contents = styled.ul`
   list-style-type: none;
   margin: 0;
   padding: 0;
+  width: 100%;
+  white-space: nowrap;
+  overflow-x: auto;
+  overflow-y: hidden;
+  -webkit-overflow-scrolling: touch;
+
+  @media (min-width: 678px) {
+    white-space: initial;
+    overflow: hidden;
+  }
 `
 
 const ContentsItem = styled.li`
+  margin-right: 1rem;
   margin-bottom: 0.25rem;
+  display: inline-block;
+
+  @media (min-width: 678px) {
+    margin-right: 0;
+    white-space: initial;
+    overflow: hidden;
+    display: list-item;
+  }
 `
 
 const ContentsLink = styled(({ active, ...props }) => <Link {...props} />)`
@@ -49,8 +81,13 @@ const ContentsLink = styled(({ active, ...props }) => <Link {...props} />)`
   color: ${({ theme, active }) =>
     active ? theme.colors.brand : theme.colors.offBlack};
   text-decoration: none;
-  padding: 0.25rem 0.5rem;
-  margin: 0 -0.25rem;
+  padding: 1em 0;
+  margin: 0;
+
+  @media (min-width: 678px) {
+    padding: 0.25rem 0.5rem;
+    margin: 0 -0.25rem;
+  }
 
   &:hover,
   &:focus {
@@ -60,7 +97,9 @@ const ContentsLink = styled(({ active, ...props }) => <Link {...props} />)`
 `
 
 const Main = styled.main`
-  padding: ${getSpace(60)};
+  @media (min-width: 678px) {
+    padding: ${getSpace(60)};
+  }
 `
 
 const DocsLayout = props => {
