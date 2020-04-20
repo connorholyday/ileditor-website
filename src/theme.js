@@ -61,4 +61,8 @@ export const GlobalStyles = createGlobalStyle`
       text-decoration: none;
     }
   }
+
+  pre {
+    white-space: pre-wrap;
+  }
 `
