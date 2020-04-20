@@ -106,7 +106,34 @@ const Main = styled.main`
   }
 `
 
+const Pagination = styled.div`
+  display: flex;
+  justify-content: space-between;
+`
+
+const PaginationLink = styled.div`
+  display: flex;
+  flex-direction: column;
+  font-weight: 600;
+  margin: 0;
+  padding: ${getSpace(8)} 0;
+  text-align: ${({ right }) => (right ? "right" : "left")};
+
+  span {
+    margin-bottom: ${getSpace(8)};
+  }
+
+  a {
+    text-decoration: none;
+  }
+
+  @media (min-width: 640px) {
+    padding: ${getSpace(32)} 0;
+  }
+`
+
 const DocsLayout = props => {
+  const { previous, next } = props.pageContext
   const posts = props.data.allMdx.edges
   const post = props.data.mdx
   const siteTitle = props.data.site.siteMetadata.title
@@ -141,6 +168,24 @@ const DocsLayout = props => {
               datetime={post.frontmatter.datetime}
             />
             <MDXRenderer>{post.body}</MDXRenderer>
+            <Pagination>
+              {previous && (
+                <PaginationLink>
+                  <span>Previous</span>
+                  <Link to={previous.frontmatter.path}>
+                    {previous.frontmatter.title}
+                  </Link>
+                </PaginationLink>
+              )}
+              {next && (
+                <PaginationLink right>
+                  <span>Next</span>
+                  <Link to={next.frontmatter.path}>
+                    {next.frontmatter.title}
+                  </Link>
+                </PaginationLink>
+              )}
+            </Pagination>
           </Main>
         </Container>
       </Wrapper>
