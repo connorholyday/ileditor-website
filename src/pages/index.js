@@ -256,11 +256,15 @@ const CardContent = styled.p`
 `
 
 const HelpCopy = styled.p`
-  font-size: ${({ theme }) => getSpace(theme.fontSizes[2])};
+  font-size: ${({ theme }) => getSpace(theme.fontSizes[1])};
   line-height: 1.4;
   text-align: left;
   max-width: ${getSpace(570)};
   margin: 0;
+
+  a {
+    font-weight: 800;
+  }
 
   &:not(:last-of-type) {
     margin-bottom: 1em;
