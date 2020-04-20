@@ -118,6 +118,7 @@ const PaginationLink = styled.div`
   margin: 0;
   padding: ${getSpace(8)} 0;
   text-align: ${({ right }) => (right ? "right" : "left")};
+  margin-left: ${({ right }) => (right ? "auto" : "none")};
 
   span {
     margin-bottom: ${getSpace(8)};
