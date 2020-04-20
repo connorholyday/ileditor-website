@@ -410,7 +410,7 @@ const Home = () => {
         <Title>The future of IBM&nbsp;i</Title>
         <Intro>
           Bring your development up to speed with the fastest, most advanced
-          tool for IBM&nbsp;i development yet.
+          cross-platform tool for IBM&nbsp;i development yet.
         </Intro>
         <Button href="https://ileditorweb.herokuapp.com/signup">
           Get started today
