@@ -372,7 +372,7 @@ const Cards = [
   {
     title: "Plugin System",
     content:
-      "We’re building a plugin orientated system so we can easily extend your IDE. Git, RPG conversaion and more, as plugins.",
+      "We’re building a plugin orientated system so we can easily extend your IDE. Git, RPG conversion and more, as plugins.",
   },
 ]
 
