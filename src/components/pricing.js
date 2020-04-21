@@ -294,7 +294,7 @@ export default () => (
       <PricingTitle>Sign up today and join our community</PricingTitle>
       <PriceContainer>
         <Price>£24.99</Price>
-        <PriceDetail>per month</PriceDetail>
+        <PriceDetail>per license per month</PriceDetail>
       </PriceContainer>
       <PriceList>
         <PriceItem>Rolling monthly contract, cancel any time!</PriceItem>
