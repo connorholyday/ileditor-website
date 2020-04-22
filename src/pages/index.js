@@ -256,11 +256,15 @@ const CardContent = styled.p`
 `
 
 const HelpCopy = styled.p`
-  font-size: ${({ theme }) => getSpace(theme.fontSizes[2])};
+  font-size: ${({ theme }) => getSpace(theme.fontSizes[1])};
   line-height: 1.4;
   text-align: left;
   max-width: ${getSpace(570)};
   margin: 0;
+
+  a {
+    font-weight: 800;
+  }
 
   &:not(:last-of-type) {
     margin-bottom: 1em;
@@ -410,7 +414,7 @@ const Home = () => {
         <Title>The future of IBM&nbsp;i</Title>
         <Intro>
           Bring your development up to speed with the fastest, most advanced
-          tool for IBM&nbsp;i development yet.
+          cross-platform tool for IBM&nbsp;i development yet.
         </Intro>
         <Button href="https://ileditorweb.herokuapp.com/signup">
           Get started today

@@ -164,8 +164,8 @@ export default ({ slim, sticky, solid }) => {
             <img src={logo} alt="ILEditor2 Logo" />
           </Link>
         </Home>
-        <Nav isOpen={open}>
-          <CloseIcon onClick={() => setOpen(false)} />
+        <Nav isOpen={open} onClick={() => setOpen(false)}>
+          <CloseIcon />
           <NavLink to="/#features">Features</NavLink>
           <NavLink to="/docs">Documentation</NavLink>
           <NavLink to="/#help">FAQs</NavLink>
