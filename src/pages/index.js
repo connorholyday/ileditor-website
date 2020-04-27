@@ -397,6 +397,13 @@ const Home = () => {
           }
         }
       }
+      variables: file(relativePath: { eq: "variables.png" }) {
+        childImageSharp {
+          fluid(quality: 100) {
+            ...GatsbyImageSharpFluid
+          }
+        }
+      }
       gitPlugin: file(relativePath: { eq: "git-client.png" }) {
         childImageSharp {
           fluid(quality: 100) {
@@ -467,9 +474,9 @@ const Home = () => {
           </BlockIcon>
           <BlockTitle>See it on the inside</BlockTitle>
           <BlockCopy>
-            ILEditor 2 comes with built-in code coverage support. Not only can
-            you develop your applications, but you can set up test cases to see
-            what code is actually being run.
+            As well as code-coverage support, ILEditor 2 includes functionality to better 
+            navigate and understand you code - with features like "Go to Definition" and 
+            the ability to see all references at a glance.
           </BlockCopy>
         </BlockContent>
         <BlockMedia>
@@ -486,7 +493,7 @@ const Home = () => {
             }}
           >
             <BlockImage
-              fluid={data.codeCoverage.childImageSharp.fluid}
+              fluid={data.variables.childImageSharp.fluid}
               alt="Code Coverage example"
             />
           </Tilt>
