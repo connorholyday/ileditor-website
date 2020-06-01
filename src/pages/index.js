@@ -522,9 +522,9 @@ const Home = () => {
           </BlockIcon>
           <BlockTitle>See it on the inside</BlockTitle>
           <BlockCopy>
-            As well as code-coverage support, ILEditor 2 includes functionality to better 
-            navigate and understand you code - with features like "Go to Definition" and 
-            the ability to see all references at a glance.
+            As well as code-coverage support, ILEditor 2 includes functionality
+            to better navigate and understand you code - with features like "Go
+            to Definition" and the ability to see all references at a glance.
           </BlockCopy>
         </BlockContent>
         <BlockMedia>
@@ -615,8 +615,9 @@ const Home = () => {
                   </HelpTitle>
                 </HelpTitleWrap>
                 <HelpContent>
-                  While ILEditor 2 is in open-beta, we are not offering free
-                  trials. You can expect to see this by the time we reach 1.0.
+                  Yes! Choose one of the buttons at the top of the page to begin
+                  your download of ILEditor2 and click "Request a trial" to get
+                  started, no account needed.
                 </HelpContent>
               </HelpPanel>
               <HelpPanel>
