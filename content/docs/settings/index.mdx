@@ -41,4 +41,14 @@ The ASP name here is used if you store your source code in a different ASP which
 
 ### Temp Library
 
-ILEditor 2 needs a temp library to store information for your working session. If there are multiple people in a company using ILEditor 2, it is recommended that they all share the same Temp Library. This library can be cleared regularly as may build up in storage, without affecting any connections.
+ILEditor 2 needs a temp library to store information for your working session. If there are multiple people in a company using ILEditor 2, it is recommended that they all share the same Temp Library. This library can be cleared regularly as may build up in storage, preferably when no one is working.
+
+It is common to use a scheduled job to do this:
+
+```
+ADDJOBSCDE JOB(ILECLEAN) 
+           CMD(CLRLIB LIB(ILEDITOR)) 
+           FRQ(*WEEKLY) SCDDATE(*NONE) 
+           SCDDAY(*ALL) SCDTIME('23:59:59') 
+           TEXT('Clear ILEditor 2 temporary data')
+```
