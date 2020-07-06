@@ -30,3 +30,12 @@ Supported db2util versions:
 ## Record limit
 
 As of 0.5.2, we now enforce the record format limit in source members. If you try and edit over the record limit in a member, you will be prompted before saving.
+
+## ASP support
+
+As of 0.6, you can supply an ASP name if your source file is not in the default ASP. This is only needed if you do not use db2util, because that uses a different mechanism to fetch the content of members.
+
+In the Settings, under Source file shortcuts, instead of supplying a two-part name (`LIBRARY/FILE`) you can supply a three-part name, which would include the ASP:
+
+* Default: `MYLIB/QRPGLESRC`
+* In an ASP: `myASP/OTHERLIB/QRPGLESRC`
