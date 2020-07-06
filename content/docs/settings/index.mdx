@@ -13,6 +13,10 @@ This is the settings window. On the left is a list of different configurable set
 
 This list is the list of members which will be displayed in the Member Browser panel. For example, if you wanted to edit source in `DEVLIB/QRPGLESRC`, then you should add it to the list first. The order in which the items are will be reflected in the panel also.
 
+### IFS Shortcuts
+
+This is a list of directories which will be displayed in the IFS Browser panel. For example, if you wanted to edit source in `/home/USER/myfolder`, then you should add it to the list first. The order in which the items are will be reflected in the panel also.
+
 ### Compile Settings
 
 The compile settings is a JSON editor in which the compile options are stored.
@@ -20,6 +24,8 @@ The compile settings is a JSON editor in which the compile options are stored.
 - Top-level properties are for the type of extension (like `RPGLE` or `CLLE`)
 - The next object down from that is for the file system type - either `QSYS` (source members) or `IFS` (streamfiles)
 - The type object is a key-value list of compile options and their command.
+
+You will also see a `common` top level property, which will be available for all types of source code.
 
 When you install ILEditor 2, there will already be default properties.
 
@@ -35,10 +41,6 @@ The home directory is the directory that will be used in the IFS Browser as the 
 
 This library is used to build objects into when building source code out of the IFS.
 
-### QSYS ASP
-
-The ASP name here is used if you store your source code in a different ASP which is not the default. This is only needed for source code in members.
-
 ### Temp Library
 
 ILEditor 2 needs a temp library to store information for your working session. If there are multiple people in a company using ILEditor 2, it is recommended that they all share the same Temp Library. This library can be cleared regularly as may build up in storage, preferably when no one is working.
@@ -52,3 +54,7 @@ ADDJOBSCDE JOB(ILECLEAN)
            SCDDAY(*ALL) SCDTIME('23:59:59') 
            TEXT('Clear ILEditor 2 temporary data')
 ```
+
+### Theme
+
+This setting will allow you to change themes within the editor.
