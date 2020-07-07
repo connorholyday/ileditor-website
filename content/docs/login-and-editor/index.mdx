@@ -5,7 +5,9 @@ date: 2020-07-04
 order: 1
 ---
 
-When you launch ILEditor 2, you will only be prompted to enter a hostname (or IP), username and password. ILEditor 2 is completely SSH driven, so your IBM i system must have the SSH Daemon started.
+When you launch ILEditor 2, you will only be prompted to enter a hostname (or IP), username and password. ILEditor 2 is completely SSH driven, so **your IBM i system must have the SSH Daemon started**. To start the Daemon, you can use `STRTCPSVR SERVER(*SSHD)` to start it. [Click here to see the IBM documentation page](https://www.ibm.com/support/knowledgecenter/en/ssw_ibm_i_73/cl/strtcpsvr.htm).
+
+### Getting started
 
 You will also see a Quick Connection list the is pre-filled with "pub400.com". Clicking on this will fill out the hostname and port used to connect to pub400.com. To update this quick connection you can enter a username and password and then click on the "Save" button located at the bottom.
 
@@ -23,6 +25,6 @@ The bar at the bottom with the text 'Compile Status' is known as the compile bar
 
 The cog in the bottom left is the button to display the ILEditor 2 settings.
 
-## Item filter
+### Item filter
 
 You'll find that the Member Browser and IFS Browser have a filter. This is useful to filter source files and directories that have a lot of source/files. Note, this is not search functionality. It is a filter for list already fetched from the server.
