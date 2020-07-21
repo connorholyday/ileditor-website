@@ -28,10 +28,10 @@ For example, if you have two compile options for RPGLE:
 
 You could use either:
 
-* `live-error: crtbndrpg` to run the CRTBNDRPG option
-* `live-error: crtrpgmod` to run the CRTRPGMOD option
+* `compile: crtbndrpg` to run the CRTBNDRPG option
+* `compile: crtrpgmod` to run the CRTRPGMOD option
 
-You can also see it being used in the screenshot above.
+You can also see it being used in the screenshot above. When using the Live Errors feature, **it will also default to that compile option** so you do not have to keep selecting it from the dropdown.
 
 **Notice**: If you have a slow development system, you might find that it takes a while for the notices to show up. If live errors are slowing down your work, disable the feature by removing the tag. Right now, we have found that Live Errors only works for sources not using Embedded SQL (e.g. none of the `CRTSQL*` commands) from the IFS and rare instances in source members.
 
