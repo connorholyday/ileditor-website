@@ -27,7 +27,7 @@ interface SnippetSuggestion {
   /** Type of snippet/suggestion. Accepts any CompletionItemKind key. */
   kind?: 'Snippet'|'Function'|string;
 
-  /** Which header this belongs too. If provided, will only be shown when header file in copied/included in the source code. Supports (SQL)RPGLE only.
+  /** Which header this belongs too. If provided, will only be shown when header file in copied/included in the source code. Supports (SQL)RPGLE only. */
   api?: string;
 }
 ```
