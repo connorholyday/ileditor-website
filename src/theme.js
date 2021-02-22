@@ -47,10 +47,19 @@ export const GlobalStyles = createGlobalStyle`
 
   table {
     width: 100%;
-    border-collapse:separate; 
-    border-spacing:1em;
+    border-collapse: collapse; 
+
     thead {
       text-align: left;
+    }
+
+    tr {
+      border-bottom: 1px solid rgba(0,101,255,0.1)
+    }
+
+    th,
+    td {
+      padding: .5em 0;
     }
   }
 
