@@ -5,7 +5,7 @@ date: 2020-04-17
 order: 12
 ---
 
-ILEditor 2 relies on using some Db2 for i to fetch information about the member. Because of this, if your jobs run under CCSID 65535 then you will not be able to edit the member and retain the source dates, even if you have db2util installed.
+Code for IBM i relies on using some Db2 for i to fetch information about the member. Because of this, if your jobs run under CCSID 65535 then you will not be able to edit the member and retain the source dates, even if you have db2util installed.
 
 In order to resolve this, the easiest way to get around it is to change your CCSID at a **user level** first by using `CHGUSRPRF USER(XXX) CCSID(XXX)`.
 
