@@ -452,7 +452,7 @@ const Home = () => {
         <ButtonGroup>
           <Button
             variant="icon"
-            href="https://github.com/halcyon-tech/ileditor2-issues/releases/download/v0.8.0/ILEditor-2-Setup-0.8.0.exe"
+            href="https://github.com/halcyon-tech/ileditor2-issues/releases/download/v0.9.1/ILEditor-2-Setup-0.9.1.exe"
           >
             <svg
               role="img"
@@ -469,7 +469,7 @@ const Home = () => {
           </Button>
           <Button
             variant="icon"
-            href="https://github.com/halcyon-tech/ileditor2-issues/releases/download/v0.8.0/ILEditor-2-0.8.0.dmg"
+            href="https://github.com/halcyon-tech/ileditor2-issues/releases/download/v0.9.1/ILEditor-2-0.9.1.dmg"
           >
             <svg
               role="img"
@@ -486,7 +486,7 @@ const Home = () => {
           </Button>
           <Button
             variant="icon"
-            href="https://github.com/halcyon-tech/ileditor2-issues/releases/download/v0.8.0/ileditor2_0.8.0_amd64.deb"
+            href="https://github.com/halcyon-tech/ileditor2-issues/releases/download/v0.9.1/ileditor2_0.9.1_amd64.deb"
           >
             <svg
               role="img"
