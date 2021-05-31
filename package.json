@@ -1,7 +1,7 @@
 {
-  "name": "ileditor-starter",
+  "name": "codefori-starter",
   "private": true,
-  "description": "ILEditor 2 website",
+  "description": "Code for IBM i website",
   "version": "0.1.0",
   "author": "Connor Holyday <connorholyday@gmail.com>",
   "dependencies": {

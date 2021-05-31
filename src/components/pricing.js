@@ -290,11 +290,11 @@ export default () => (
     <PricingMain>
       <Icon1 />
       <Icon2 />
-      <Pill>Limited offer</Pill>
+      <Pill>Get started</Pill>
       <PricingTitle>Sign up today and join our community</PricingTitle>
       <PriceContainer>
-        <Price>£24.99</Price>
-        <PriceDetail>per license per month</PriceDetail>
+        <Price>$10</Price>
+        <PriceDetail>developer license per month</PriceDetail>
       </PriceContainer>
       <PriceList>
         <PriceItem>Rolling monthly contract, cancel any time!</PriceItem>
@@ -302,9 +302,9 @@ export default () => (
         <PriceItem>
           View all issues and feature requests on our public board
         </PriceItem>
-        <PriceItem>Open plugin system coming soon</PriceItem>
+        <PriceItem>Open plugin system</PriceItem>
       </PriceList>
-      <SmallButton href="https://ileditorweb.herokuapp.com/signup">
+      <SmallButton href="https://code.ileditor.dev/purchase">
         Sign Up
       </SmallButton>
     </PricingMain>
@@ -312,18 +312,18 @@ export default () => (
       <Icon3 />
       <Icon4 />
       <PricingAsideContainer>
-        <PricingAsideTitle>COVID-19 Notice</PricingAsideTitle>
+        <PricingAsideTitle>Supporting us</PricingAsideTitle>
         <PricingAsideCopy>
-          We are offereing free* licences to software developers working in the
-          medical or healthcare industry using IBM&nbsp;i.
+          By purchasing a subscription, you are supporting development of Code for IBM&nbsp;i.
+          If you have any questions, we want to hear from you!
         </PricingAsideCopy>
         <SmallButton href="mailto:support@ileditor.dev">
           Get in touch
         </SmallButton>
       </PricingAsideContainer>
-      <PricingAsideAsterisk>
+      {/* <PricingAsideAsterisk>
         * This license will be free for one month
-      </PricingAsideAsterisk>
+      </PricingAsideAsterisk> */}
     </PricingAside>
   </Pricing>
 )
