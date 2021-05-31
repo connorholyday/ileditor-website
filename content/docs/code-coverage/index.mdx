@@ -6,4 +6,25 @@ order: 7
 pro: true
 ---
 
-Code Coverage is not yet available in Code for IBM i.
+![A screenshot showing the code coverage plugin in action](./code-coverage-1.png)
+
+Code Coverage allows the users to determine which lines of code were and were not executed.
+
+The Code Coverage Pro features comes with it's own panel in VS Code (as shown in the screenshot). This panel will show a list of Coverage Tests you have created. At the top of the view, there are two buttons:
+
+* `+` (add) which is used to create a new Coverage Test
+* a re-run icon, which will rerun any of the tests are showing their results. This button allows you to run multiple tests at once.
+
+Click the add button will show a new dialog, where you can provide information for the test:
+
+1. Name of the test
+2. Command to execute in the test. For example: `CALL LIB/PGM`
+3. Program for coverage to check. Usually the program you are calling.
+4. A binding directory. If you are calling a program that calls a service program (or many service programs), you should specify the binding directory which contains those programs for them to be included in the coverage result.
+
+Note that for Code Coverage to work you need to make sure
+
+1. that `QDEVTOOLS` is on your library list.
+2. the correct PTFs are installed (which are free).
+
+![](./code-coverage-2.png)
