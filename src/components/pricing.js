@@ -278,13 +278,6 @@ const PricingAsideCopy = styled.p`
   margin: 0 0 24px;
 `
 
-const PricingAsideAsterisk = styled.p`
-  font-size: 16px;
-  line-height: 1.5;
-  color: #676767;
-  margin: 0;
-`
-
 export default () => (
   <Pricing id="pricing">
     <PricingMain>
