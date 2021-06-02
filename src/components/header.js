@@ -172,10 +172,10 @@ export default ({ slim, sticky, solid }) => {
           <NavLink to="/#pricing">Pricing</NavLink>
         </Nav>
         <Buttons>
-          <Button href="https://ileditorweb.herokuapp.com/signup">
+          <Button href="https://code.ileditor.dev/signup">
             Sign Up
           </Button>
-          <Button href="https://ileditorweb.herokuapp.com/login">
+          <Button href="https://code.ileditor.dev/login">
             Sign In
           </Button>
         </Buttons>
