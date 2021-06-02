@@ -1,8 +1,8 @@
 ---
 title: Code Coverage
 path: /docs/code-coverage
-date: 2020-03-31
-order: 7
+date: 2021-05-31
+order: 3
 pro: true
 ---
 
@@ -10,17 +10,17 @@ pro: true
 
 Code Coverage allows the users to determine which lines of code were and were not executed.
 
-The Code Coverage panel displays a list of libraries (coming from the Library List setting in ILEditor 2) and when you click on the library it will display a list of programs inside of it. Clicking on the program will execute it under code coverage and will display a list of sources from the coverage results. Clicking on the source will open up the coverage result in a new tab.
+The Code Coverage Pro features comes with it's own panel in VS Code (as shown in the screenshot). This panel will show a list of Coverage Tests you have created. At the top of the view, there are two buttons:
 
-The coverage tab will display the source code used from the test. If the line is highlighted green, it means the line was executed. If there is a red bar to the left of it, it means the opposite.
+* `+` (add) which is used to create a new Coverage Test
+* a re-run icon, which will rerun any of the tests are showing their results. This button allows you to run multiple tests at once.
 
-Internally, the Code Coverage plugin uses the `CODECOV` command. While you can pass in program parameters to this command, the plugin simply calls the program with no parameters:
+Click the add button will show a new dialog, where you can provide information for the test:
 
-```clike
-CODECOV CMD(CALL PGM(${library}/${name})) MODULE((${library}/${name} *PGM *ALL))
-```
-
-When the test is executing, it will use the library list defined in the Settings for ILEditor 2.
+1. Name of the test
+2. Command to execute in the test. For example: `CALL LIB/PGM`
+3. Program for coverage to check. Usually the program you are calling.
+4. A binding directory. If you are calling a program that calls a service program (or many service programs), you should specify the binding directory which contains those programs for them to be included in the coverage result.
 
 Note that for Code Coverage to work you need to make sure
 
@@ -28,5 +28,3 @@ Note that for Code Coverage to work you need to make sure
 2. the correct PTFs are installed (which are free).
 
 ![](./code-coverage-2.png)
-
-As of 0.6, you are now able to import existing `.cczip` files into the editor. Meaning you can run code coverage outside of ILEditor 2 and then view the contents at a later time.

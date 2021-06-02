@@ -1,8 +1,8 @@
 module.exports = {
   siteMetadata: {
-    title: `ILEditor 2`,
+    title: `Halcyon Tech Ltd`,
     description: `Bring your development up to speed with the fastest, most advanced tool for IBM i development yet.`,
-    author: `@ileditor2`,
+    author: `@halcyontechltd`,
   },
   plugins: [
     `gatsby-plugin-react-helmet`,

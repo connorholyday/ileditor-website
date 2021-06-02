@@ -79,7 +79,7 @@ const Button = styled.a`
   color: ${({ theme }) => theme.colors.white};
   background: ${({ theme }) => theme.colors.brand};
   border: 2px solid ${({ theme }) => theme.colors.brand};
-  padding: 16px 32px;
+  padding: 16px 24px;
   border-radius: 8px;
   transition: all 0.1s linear;
 
@@ -377,7 +377,7 @@ const Cards = [
   {
     title: "Source Browsers",
     content:
-      "ILEditor has simple integrated browsers for source-physical files and the IFS.",
+      "Code for IBM i has simple integrated browsers for source-physical files and the IFS.",
   },
   {
     title: "Inline Compiling",
@@ -387,12 +387,12 @@ const Cards = [
   {
     title: "Syntax Highlighting",
     content:
-      "Support for majority of ILE languages: RPG, CLLE, C, C++ and even COBOL. Plus other great languages like PHP, JS and Python.",
+      "Support for majority of ILE languages: RPG, CLLE, C, C++ and even COBOL, thanks to @barrettotte!",
   },
   {
     title: "Intuitive Design",
     content:
-      "We’ve built the editor for simplicity. We cut down on clutter and made it easy to get started with.",
+      "We’ve built the extension for simplicity. We cut down on clutter and made it easy to get started with.",
   },
   {
     title: "Inline Error List",
@@ -402,7 +402,7 @@ const Cards = [
   {
     title: "Plugin System",
     content:
-      "We’re building a plugin orientated system so we can easily extend your IDE. Git, RPG conversion and more, as plugins.",
+      "Code for IBM i is not only an extension, it is an extension that you can use to build your own IBM i tools.",
   },
 ]
 
@@ -423,13 +423,6 @@ const Home = () => {
           }
         }
       }
-      variables: file(relativePath: { eq: "variables.png" }) {
-        childImageSharp {
-          fluid(quality: 100) {
-            ...GatsbyImageSharpFluid
-          }
-        }
-      }
       gitPlugin: file(relativePath: { eq: "git-client.png" }) {
         childImageSharp {
           fluid(quality: 100) {
@@ -442,7 +435,7 @@ const Home = () => {
 
   return (
     <Layout>
-      <SEO title="ILEditor - The future of IBM i" />
+      <SEO title="Code for IBM i" />
       <CenterSection>
         <Title>The future of IBM&nbsp;i</Title>
         <Intro>
@@ -452,54 +445,33 @@ const Home = () => {
         <ButtonGroup>
           <Button
             variant="icon"
-            href="https://github.com/halcyon-tech/ileditor2-issues/releases/download/v0.9.1/ILEditor-2-Setup-0.9.1.exe"
+            href="https://marketplace.visualstudio.com/items?itemName=HalcyonTechLtd.code-for-ibmi"
           >
             <svg
-              role="img"
               width="24"
-              viewBox="0 0 24 24"
               xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 512 512"
               fill="currentColor"
               style={{ marginRight: "0.5em" }}
             >
-              <title>Windows icon</title>
-              <path d="M0 3.449L9.75 2.1v9.451H0m10.949-9.602L24 0v11.4H10.949M0 12.6h9.75v9.451L0 20.699M10.949 12.6H24V24l-12.9-1.801" />
+              <path fill="currentColor" d="M239.1 6.3l-208 78c-18.7 7-31.1 25-31.1 45v225.1c0 18.2 10.3 34.8 26.5 42.9l208 104c13.5 6.8 29.4 6.8 42.9 0l208-104c16.3-8.1 26.5-24.8 26.5-42.9V129.3c0-20-12.4-37.9-31.1-44.9l-208-78C262 2.2 250 2.2 239.1 6.3zM256 68.4l192 72v1.1l-192 78-192-78v-1.1l192-72zm32 356V275.5l160-65v133.9l-160 80z"/>
             </svg>
-            Windows
+            Try
           </Button>
           <Button
             variant="icon"
-            href="https://github.com/halcyon-tech/ileditor2-issues/releases/download/v0.9.1/ILEditor-2-0.9.1.dmg"
+            href="https://code.ileditor.dev/pro"
           >
             <svg
-              role="img"
               width="24"
-              viewBox="0 0 24 24"
               xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 576 512"
               fill="currentColor"
               style={{ marginRight: "0.5em" }}
             >
-              <title>Apple icon</title>
-              <path d="M7.078 23.55c-.473-.316-.893-.703-1.244-1.15-.383-.463-.738-.95-1.064-1.454-.766-1.12-1.365-2.345-1.78-3.636-.5-1.502-.743-2.94-.743-4.347 0-1.57.34-2.94 1.002-4.09.49-.9 1.22-1.653 2.1-2.182.85-.53 1.84-.82 2.84-.84.35 0 .73.05 1.13.15.29.08.64.21 1.07.37.55.21.85.34.95.37.32.12.59.17.8.17.16 0 .39-.05.645-.13.145-.05.42-.14.81-.31.386-.14.692-.26.935-.35.37-.11.728-.21 1.05-.26.39-.06.777-.08 1.148-.05.71.05 1.36.2 1.94.42 1.02.41 1.843 1.05 2.457 1.96-.26.16-.5.346-.725.55-.487.43-.9.94-1.23 1.505-.43.77-.65 1.64-.644 2.52.015 1.083.29 2.035.84 2.86.387.6.904 1.114 1.534 1.536.31.21.582.355.84.45-.12.375-.252.74-.405 1.1-.347.807-.76 1.58-1.25 2.31-.432.63-.772 1.1-1.03 1.41-.402.48-.79.84-1.18 1.097-.43.285-.935.436-1.452.436-.35.015-.7-.03-1.034-.127-.29-.095-.576-.202-.856-.323-.293-.134-.596-.248-.905-.34-.38-.1-.77-.148-1.164-.147-.4 0-.79.05-1.16.145-.31.088-.61.196-.907.325-.42.175-.695.29-.855.34-.324.096-.656.154-.99.175-.52 0-1.004-.15-1.486-.45zm6.854-18.46c-.68.34-1.326.484-1.973.436-.1-.646 0-1.31.27-2.037.24-.62.56-1.18 1-1.68.46-.52 1.01-.95 1.63-1.26.66-.34 1.29-.52 1.89-.55.08.68 0 1.35-.25 2.07-.228.64-.568 1.23-1 1.76-.435.52-.975.95-1.586 1.26z" />
+              <path fill="currentColor" d="M259.3 17.8L194 150.2 47.9 171.5c-26.2 3.8-36.7 36.1-17.7 54.6l105.7 103-25 145.5c-4.5 26.3 23.2 46 46.4 33.7L288 439.6l130.7 68.7c23.2 12.2 50.9-7.4 46.4-33.7l-25-145.5 105.7-103c19-18.5 8.5-50.8-17.7-54.6L382 150.2 316.7 17.8c-11.7-23.6-45.6-23.9-57.4 0z"/>
             </svg>
-            Mac OS
-          </Button>
-          <Button
-            variant="icon"
-            href="https://github.com/halcyon-tech/ileditor2-issues/releases/download/v0.9.1/ileditor2_0.9.1_amd64.deb"
-          >
-            <svg
-              role="img"
-              width="24"
-              viewBox="0 0 24 24"
-              xmlns="http://www.w3.org/2000/svg"
-              fill="currentColor"
-              style={{ marginRight: "0.5em" }}
-            >
-              <title>Linux icon</title>
-              <path d="M12 0c6.623 0 12 5.377 12 12s-5.377 12-12 12S0 18.623 0 12 5.377 0 12 0zm3.279 17.68c-.766.441-1.029 1.422-.586 2.189.441.765 1.422 1.028 2.188.584.766-.441 1.029-1.422.585-2.189-.441-.765-1.421-1.028-2.187-.584zm-3.279-1c-.705 0-1.373-.157-1.971-.435L8.916 18.24c.93.459 1.978.721 3.084.721.646 0 1.268-.091 1.86-.256.104-.643.485-1.234 1.095-1.587.609-.351 1.313-.386 1.92-.156 1.186-1.163 1.957-2.749 2.07-4.515l-2.285-.033c-.21 2.391-2.215 4.266-4.66 4.266zM7.32 12c0-1.583.787-2.981 1.99-3.83L8.14 6.209c-1.404.93-2.445 2.369-2.881 4.035.506.404.83 1.034.83 1.74 0 .704-.324 1.319-.83 1.739.436 1.665 1.477 3.104 2.881 4.034l1.17-1.965C8.107 14.97 7.32 13.574 7.32 12zm-3.48-1.602c-.885 0-1.602.717-1.602 1.602s.717 1.602 1.602 1.602S5.441 12.885 5.441 12s-.716-1.602-1.601-1.602zM12 7.32c2.445 0 4.45 1.875 4.66 4.265l2.285-.034c-.113-1.765-.885-3.35-2.07-4.516-.609.232-1.313.194-1.92-.154-.609-.352-.99-.945-1.095-1.591-.594-.16-1.214-.25-1.86-.25-1.11 0-2.155.26-3.084.72l1.113 1.995c.6-.279 1.268-.435 1.971-.435zm3.279-1.001c.765.442 1.746.181 2.189-.585.441-.765.181-1.746-.588-2.19-.765-.44-1.746-.179-2.189.589-.441.764-.18 1.744.588 2.186z"/>
-            </svg>
-            Linux
+            Buy
           </Button>
         </ButtonGroup>
       </CenterSection>
@@ -550,9 +522,8 @@ const Home = () => {
           </BlockIcon>
           <BlockTitle>See it on the inside</BlockTitle>
           <BlockCopy>
-            As well as code-coverage support, ILEditor 2 includes functionality
-            to better navigate and understand you code - with features like "Go
-            to Definition" and the ability to see all references at a glance.
+            Code for IBM i Pro includes support to streamline your coverage tests right within the IDE.
+            We make creating, maintaining and running your tests as simple as a click.
           </BlockCopy>
         </BlockContent>
         <BlockMedia>
@@ -569,7 +540,7 @@ const Home = () => {
             }}
           >
             <BlockImage
-              fluid={data.variables.childImageSharp.fluid}
+              fluid={data.codeCoverage.childImageSharp.fluid}
               alt="Code Coverage example"
             />
           </Tilt>
@@ -582,7 +553,7 @@ const Home = () => {
           </BlockIcon>
           <BlockTitle>Watch it grow</BlockTitle>
           <BlockCopy>
-            We want developers to live in the future, which is why ILEditor 2
+            We want developers to live in the future, which is why Code for IBM i
             comes with a git plugin for IBM&nbsp;i. Develop in any language in
             the IFS (including RPG, COBOL, C, PHP, etc) and use the git plugin
             to track &amp; manage source.
@@ -625,7 +596,7 @@ const Home = () => {
           <HelpColumn>
             <Subtitle style={{ textAlign: "left" }}>Help &amp; FAQs</Subtitle>
             <HelpCopy>
-              We’re here to help you get set up and using the ILEditor with
+              We’re here to help you get set up and using the Code for IBM i with
               ease.
             </HelpCopy>
             <HelpCopy>Don’t see an answer to your question?</HelpCopy>
@@ -643,9 +614,8 @@ const Home = () => {
                   </HelpTitle>
                 </HelpTitleWrap>
                 <HelpContent>
-                  Yes! Choose one of the buttons at the top of the page to begin
-                  your download of ILEditor2 and click "Request a trial" to get
-                  started, no account needed.
+                  Code for IBM i is <a href="https://marketplace.visualstudio.com/items?itemName=HalcyonTechLtd.code-for-ibmi">completely free</a>
+                  {" "}and <a href="https://github.com/halcyon-tech/code-for-ibmi">open-source</a>. Who needs a trial when you can use it for as long as you want!
                 </HelpContent>
               </HelpPanel>
               <HelpPanel>
@@ -656,9 +626,8 @@ const Home = () => {
                   </HelpTitle>
                 </HelpTitleWrap>
                 <HelpContent>
-                  Absolutely. We are still working out the kinks but we want to
-                  help you in any way possible. If you are in need of support
-                  with ILEditor 2, you can reach out to{" "}
+                  Absolutely. We want to help you in any way possible. If you are in need of support
+                  with Code for IBM i, you can reach out to{" "}
                   <a href="mailto:support@ileditor.dev">support@ileditor.dev</a>
                   .
                 </HelpContent>
@@ -671,10 +640,10 @@ const Home = () => {
                   </HelpTitle>
                 </HelpTitleWrap>
                 <HelpContent>
-                  You can report a bug for ILEditor 2 or the website on the
+                  You can report a bug for Code for IBM i or the website on the
                   public{" "}
                   <a
-                    href="https://github.com/halcyon-tech/ileditor2-issues/issues"
+                    href="https://github.com/halcyon-tech/code-for-ibmi/issues"
                     target="_blank"
                     rel="noopener noreferrer"
                   >
@@ -686,7 +655,7 @@ const Home = () => {
               <HelpPanel>
                 <HelpTitleWrap>
                   <HelpTitle>
-                    <span>How do I get started with ILEditor 2?</span>
+                    <span>How do I get started with Code for IBM i?</span>
                     <HelpIcon />
                   </HelpTitle>
                 </HelpTitleWrap>
