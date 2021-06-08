@@ -10,13 +10,13 @@ pro: true
 
 The Unit Testing extension supports testing RPGLE applications with the integrated unit testing framework.
 
-[After installing the Unit Testing extension](https://code.ileditor.dev/download), Code for IBM i will automatically detect test files. You will see ability to run tests right from the active editors, as well as see inline results in the active editor or in the Unit Test Explorer view.
+[After installing the Unit Testing extension](https://code.ileditor.dev/download), Code for IBM i will automatically detect test files. You will have the ability to run tests right from the active editor. You can also see inline results in the active editor or the Unit Test Explorer view.
 
 Nothing needs to be installed on the host IBM i to make use of the Unit Testing framework.
 
 ## Example test walkthroughs
 
-Unit Tests are RPGLE procedures that reside in a source member or streamfile. The name of the source must end with `.test` or `_t` (case-insensitive). For example, some valid names might be:
+Unit Tests are RPGLE procedures that reside in a source member or streamfile. The name must end with `.test` or `_t` (case-insensitive). For example, some valid names might be:
 
 * `mytest_t.rpgle`
 * `T0001_T.sqlrpgle`
@@ -53,7 +53,7 @@ Dcl-Proc TEST_Upper1;
 End-Proc;
 ```
 
-In most cases, you will want to test other service programs. You are able to use `CTL-OPT` to include a binding directory and also use the `/COPY` or `/INCLUDE` directives to include the prototypes.
+In most cases, you will want to test other service programs. You are able to use `CTL-OPT` to include a binding directory. Use the `/COPY` or `/INCLUDE` directives to include the prototypes.
 
 ```rpgle
 **FREE
@@ -77,9 +77,9 @@ End-Proc;
 
 ## Running Tests
 
-Tests will run using the library list setup in your connection. They are built every time you run your tests/test. You will see the results update in the active editor and also update in the Explorer view.
+Tests will run using the library list setup in your connection. They are built every time you run your tests. You will see the results update in the active editor and also update in the Explorer view.
 
-There are many ways to run your tests, or even run a specific test.
+There are many ways to run your tests or even run a specific test.
 
 1. Run Tests button at the bottom
 2. Run Tests button in the Explorer view
